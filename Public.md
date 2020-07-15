@@ -3,7 +3,7 @@
 ## Subscribe
 ```json
 {
-  "cmd": "sub",
+  "action": "sub",
   "subscriptions": [
     {"channel": "book", "market": "btctwd", "depth": 1},
     {"channel": "trade", "market": "btctwd"}
@@ -26,7 +26,7 @@
 ## Unsubscribe
 ```json
 {
-  "cmd": "unsub",
+  "action": "unsub",
   "subscription": [
     {"channel": "book", "market": "btctwd", "depth": 1},
     {"channel": "trade", "market": "btctwd" }

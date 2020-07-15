@@ -14,15 +14,15 @@ please see [Authentication](./Authentication.md) first.
      "d": "buy",
      "R": "limit",
      "p": "21499.0",
-     "P": "21499.0",
-     "A": "21499.0",
+     "sp": "21499.0",
+     "ap": "21499.0",
      "S": "done",
      "M": "ethtwd",
      "T": 1521726960123,
      "v": "0.2658",
-     "r": "0.0",
-     "f": "0.2658",
-     "Q": 1
+     "rv": "0.0",
+     "ev": "0.2658",
+     "tc": 1
   }, ...],
   "T": 1521726960357,
 }
@@ -38,15 +38,15 @@ please see [Authentication](./Authentication.md) first.
      "d": "buy",
      "R": "limit",
      "p": "21499.0",
-     "P": "21499.0",
-     "A": "21499.0",
+     "sp": "21499.0",
+     "ap": "21499.0",
      "S": "done",
      "M": "ethtwd",
      "T": 1521726960123,
      "v": "0.2658",
-     "r": "0.0",
-     "f": "0.2658",
-     "Q": 1
+     "rv": "0.0",
+     "ev": "0.2658",
+     "tc": 1
   }, ...],
   "T": 1521726960357,
 }
@@ -69,7 +69,8 @@ please see [Authentication](./Authentication.md) first.
     "f": "3.2",
     "fc": "twd",
     "m": true,    // maker
-    "oi": 7123
+    "ci": "client-oid-1",
+    "gi": 123, // group id
   }],
   "T": 1521726960357,
 }
@@ -90,7 +91,8 @@ please see [Authentication](./Authentication.md) first.
     "f": "3.2",
     "fc": "twd",
     "m": true,    // maker
-    "oi": 7123
+    "ci": "client-oid-1",
+    "gi": 123, // group id
   }],
   "T": 1521726960357,
 }

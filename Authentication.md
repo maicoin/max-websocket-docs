@@ -18,7 +18,7 @@ const signature = hmac.update(""+nonce).digest("hex");
 ## Subscription
 ```json
 {
-  "cmd": "auth",
+  "action": "auth",
   "apiKey": "...",
   "nonce": 1591690054859,
   "signature": "....",
@@ -29,7 +29,7 @@ const signature = hmac.update(""+nonce).digest("hex");
 ## Subscription with filters
 ```json
 {
-  "cmd": "auth",
+  "action": "auth",
   ...
   "filters": ["order", "trade"] // ignore account update
 }
