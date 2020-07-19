@@ -1,0 +1,23 @@
+{
+  "name": "max-websocket-docs",
+  "description": "websocket endpoint: `wss://max-stream.maicoin.com/ws`",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "docsify serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maicoin/max-websocket-docs.git"
+  },
+  "author": "LY Cheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maicoin/max-websocket-docs/issues"
+  },
+  "homepage": "https://github.com/maicoin/max-websocket-docs#readme",
+  "dependencies": {
+    "docsify-cli": "^4.4.1"
+  }
+}

@@ -1,16 +1,17 @@
-# Official Documentation for the new redesign MAX Websocket
+# Introduction
 
-websocket endpoint: `wss://max-stream.maicoin.com/ws`
+official documentation for the new redesign max websocket service
 
-*Important note*
+__Endpoint__: `wss://max-stream.maicoin.com/ws`
+
+## Important note
 * price and volume should be string
 * timestamp, depth, precision should be number
 
-Keep connection
+## Keep connection
 you can use ping pong to keep connection with server
 
 ## Response key alias
-
 we use short keys to reduce response size, please check out mappings below.
 
 ```json
@@ -52,7 +53,7 @@ we use short keys to reduce response size, please check out mappings below.
 "gi": "group id"
 ```
 
-## Error Response
+## Error response
 
 if you get any error response, it will concentrate in an array.
 
@@ -64,12 +65,3 @@ if you get any error response, it will concentrate in an array.
   "T": 123456789
 }
 ```
-
-## Details
-
-* [Public channels subscription](./Public.md)
-* [Orderbook subscription](./Public_Orderbook.md)
-* [Trade subscription](./Public_Trade.md)
-* [Ticker subscription](./Public_Ticker.md)
-* [Authentication](./Authentication.md)
-* [Private Channels subscription](./Private.md)

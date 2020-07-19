@@ -1,8 +1,9 @@
 # Authentication for private channels
 
 apply api key and secret from http://max.maicoin.com/api_tokens
-nonce should be unique integer (better use timestamp)
-signature use HMAC sha256 with your api secret to encode nonce
+nonce should be unique integer (better use timestamp).
+
+create signature by using sha256 HMAC with your api secret to encode nonce.
 
 ## NodeJS example
 ```javascript

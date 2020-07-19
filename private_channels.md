@@ -1,8 +1,10 @@
 # Private channels subscription
 
-please see [Authentication](./Authentication.md) first.
+please see [Authentication](authentication.md) first.
 
-## Order(open orders) response
+## Order response
+
+this channel will return the message with your open orders.
 
 ### Snapshot
 ```json
@@ -54,6 +56,8 @@ please see [Authentication](./Authentication.md) first.
 
 ## Trade response
 
+this channel will return the message with your trades.
+
 ### Snapshot
 ```json
 {
@@ -99,6 +103,8 @@ please see [Authentication](./Authentication.md) first.
 ```
 
 ## Account response
+
+this channel will return the message with your balances.
 
 ### Snapshot
 ```json
