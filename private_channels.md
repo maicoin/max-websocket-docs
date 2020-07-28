@@ -13,8 +13,8 @@ this channel will return the message with your open orders.
   "e": "order_snapshot",
   "o": [{
      "i": 87, // order id
-     "d": "buy",
-     "R": "limit",
+     "sd": "bid",
+     "ot": "limit",
      "p": "21499.0",
      "sp": "21499.0",
      "ap": "21499.0",
@@ -37,8 +37,8 @@ this channel will return the message with your open orders.
   "e": "order_update",
   "o": [{
      "i": 87, // order id
-     "d": "buy",
-     "R": "limit",
+     "sd": "bid",
+     "ot": "limit",
      "p": "21499.0",
      "sp": "21499.0",
      "ap": "21499.0",

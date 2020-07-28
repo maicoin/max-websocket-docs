@@ -34,7 +34,7 @@ we use short keys to reduce response size, please check out mappings below.
 "C": "close"
 "o": "orders"
 "t": "trades"
-"d": "side"
+"sd": "side"
 "rv": "remaining_volume"
 "ev": "executed_volume", "filled"
 "S": "state" ?
