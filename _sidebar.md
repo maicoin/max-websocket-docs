@@ -1,5 +1,4 @@
 * [Introduction](/)
-  * [Important note](/#important-note)
   * [Keep connection](/#keep-connection)
   * [Response key alias](/#response-key-alias)
   * [Error response](/#error-response)

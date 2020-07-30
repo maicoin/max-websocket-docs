@@ -1,7 +1,6 @@
 # Authentication for private channels
 
-Apply api key and secret from http://max.maicoin.com/api_tokens
-nonce should be unique integer (better use timestamp). For order and trade data, you will need to check read permission for Order / Trade. And for account data, please check read permission for Account & Personal Information.
+Please apply api key and secret from http://max.maicoin.com/api_tokens first, for order and trade data, you will need to check read permission for Order / Trade. And for account data, please check read permission for Account & Personal Information.
 
 Nonce is a timestamp in positive integer, stands for milliseconds elapsed since Unix epoch. Nonce must be within 30 seconds difference of server time.
 
@@ -32,6 +31,8 @@ const signature = hmac.update(""+nonce).digest("hex");
 ```
 
 ## Subscription with filters
+If you want to get the specified channels, you can use `filters` parameter. Please indicate what channel you want to listen.
+
 ```json
 {
   "action": "auth",
@@ -41,7 +42,6 @@ const signature = hmac.update(""+nonce).digest("hex");
 ```
 
 ## Success response
-
 ```json
 {
   "e": "authenticated",

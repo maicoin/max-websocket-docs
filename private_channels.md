@@ -1,10 +1,9 @@
 # Private channels subscription
 
-please see [Authentication](authentication.md) first.
+Please see [Authentication](authentication.md) first.
 
 ## Order response
-
-this channel will return the message with your open orders.
+This channel will return the message with your open orders.
 
 ### Snapshot
 ```json
@@ -26,7 +25,7 @@ this channel will return the message with your open orders.
      "ev": "0.2658",
      "tc": 1
   }, ...],
-  "T": 1521726960357,
+  "T": 1521726960357
 }
 ```
 
@@ -50,13 +49,12 @@ this channel will return the message with your open orders.
      "ev": "0.2658",
      "tc": 1
   }, ...],
-  "T": 1521726960357,
+  "T": 1521726960357
 }
 ```
 
 ## Trade response
-
-this channel will return the message with your trades.
+This channel will return the message with your trades.
 
 ### Snapshot
 ```json
@@ -76,7 +74,7 @@ this channel will return the message with your trades.
     "ci": "client-oid-1",
     "gi": 123, // group id
   }],
-  "T": 1521726960357,
+  "T": 1521726960357
 }
 ```
 
@@ -98,13 +96,12 @@ this channel will return the message with your trades.
     "ci": "client-oid-1",
     "gi": 123, // group id
   }],
-  "T": 1521726960357,
+  "T": 1521726960357
 }
 ```
 
 ## Account response
-
-this channel will return the message with your balances.
+This channel will return the message with your balances.
 
 ### Snapshot
 ```json
@@ -119,7 +116,7 @@ this channel will return the message with your balances.
     },
     ...
   ],
-  "T": 123456789,
+  "T": 123456789
 }
 ```
 

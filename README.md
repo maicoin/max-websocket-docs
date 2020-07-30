@@ -1,6 +1,6 @@
 # Introduction
 
-official documentation for the new redesign max websocket service
+Official documentation for the new redesign max websocket service
 
 __Endpoint__: `wss://max-stream.maicoin.com/ws`
 
@@ -9,7 +9,7 @@ __Important note__
 > * timestamp, depth, precision should be number
 
 ## Keep connection
-You need to use ping frame to keep connection with server. If server doesn't receive your ping for 1 minute. The connection will be closed by server side. Some libraries will do this for you, so check your library first.
+You need to use ping frame to keep connection with server. If server doesn't receive your ping for 1 minute. The connection will be closed by server side. Some libraries will do this for you, so please check your library first.
 
 ```javascript
 const WebSocket = require('ws');
@@ -70,8 +70,7 @@ We use short keys to reduce response size, please check out mappings below.
 ```
 
 ## Error response
-
-if you get any error response, it will concentrate in an array.
+If you get any error response, it will be concentrated in an array.
 
 ```json
 {
