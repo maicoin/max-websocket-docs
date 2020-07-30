@@ -18,7 +18,7 @@ we use short keys to reduce response size, please check out mappings below.
 "e": "event"
 "E": "errors"
 "c": "channel"
-"i": "id" // client customized id
+"i": "id"
 "s": "subscription"
 "T": "timestamp", "created_at"
 "U": "updated_at"
@@ -37,7 +37,7 @@ we use short keys to reduce response size, please check out mappings below.
 "sd": "side"
 "rv": "remaining_volume"
 "ev": "executed_volume", "filled"
-"S": "state" ?
+"S": "state"
 "ot": "ord_type"
 "sp": "stop_price"
 "ap": "avg_price"
@@ -48,7 +48,7 @@ we use short keys to reduce response size, please check out mappings below.
 "av": "available"
 "l": "locked"
 "f": "fee"
-"oi": "order id" // in trade
+"oi": "order id"
 "tr": "trend"
 "gi": "group id"
 ```

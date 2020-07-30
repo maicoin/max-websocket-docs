@@ -1,6 +1,8 @@
 # Public Channel Subscription
 
 ## Subscribe
+You can specify an id to mark your request, and it will be your reference for response.
+
 ```json
 {
   "action": "sub",
