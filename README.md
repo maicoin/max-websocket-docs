@@ -4,15 +4,31 @@ official documentation for the new redesign max websocket service
 
 __Endpoint__: `wss://max-stream.maicoin.com/ws`
 
-## Important note
-* price and volume should be string
-* timestamp, depth, precision should be number
+__Important note__
+> * price and volume should be string
+> * timestamp, depth, precision should be number
 
 ## Keep connection
-you can use ping pong to keep connection with server
+You need to use ping frame to keep connection with server. If server doesn't receive your ping for 1 minute. The connection will be closed by server side. Some libraries will do this for you, so check your library first.
+
+```javascript
+const WebSocket = require('ws');
+const url = "wss://max-stream.maicoin.com/ws"
+const ws = new WebSocket(url);
+
+ws.on('open', function open() {
+  setInterval(() => {
+    ws.ping("test")
+  }, 30000);
+})
+ws.on('pong', function incoming(data) {
+  // it will show "server pong test" on the screen
+  console.log('server pong', data.toString());
+});
+```
 
 ## Response key alias
-we use short keys to reduce response size, please check out mappings below.
+We use short keys to reduce response size, please check out mappings below.
 
 ```json
 "e": "event"

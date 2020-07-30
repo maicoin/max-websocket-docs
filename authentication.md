@@ -1,9 +1,13 @@
 # Authentication for private channels
 
-apply api key and secret from http://max.maicoin.com/api_tokens
-nonce should be unique integer (better use timestamp).
+Apply api key and secret from http://max.maicoin.com/api_tokens
+nonce should be unique integer (better use timestamp). For order and trade data, you will need to check read permission for Order / Trade. And for account data, please check read permission for Account & Personal Information.
 
-create signature by using sha256 HMAC with your api secret to encode nonce.
+Nonce is a timestamp in positive integer, stands for milliseconds elapsed since Unix epoch. Nonce must be within 30 seconds difference of server time.
+
+Create signature by using sha256 HMAC with your api secret to encode nonce.
+
+You can specify an id to mark your request, and it will be your reference for response.
 
 ## NodeJS example
 ```javascript
