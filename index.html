@@ -14,8 +14,20 @@
     window.$docsify = {
       name: 'Max WebSocket docs',
       repo: 'https://github.com/maicoin/max-websocket-docs',
+      auto2top: true,
+      loadNavbar: true,
       loadSidebar: true,
-      search: 'auto', // default
+      search: {
+        noData: {
+          '/zh-tw/': '找不到結果！',
+          '/': 'No results!'
+        },
+        paths: 'auto',
+        placeholder: {
+          '/zh-tw/': '搜尋',
+          '/': 'Search'
+        }
+      },
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>

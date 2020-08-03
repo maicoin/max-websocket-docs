@@ -1,17 +1,17 @@
-# Introduction
+# 介紹
 
-Official documentation for the new redesign max websocket service
-We are in the beta testing right now. If you are interested, please fill the form below.
-[Early Access](https://forms.gle/SiXXkaQzyCHuM2Gu5)
+這是新設計的 MAX WebSocket 服務官方文件
+我們正在進行測試，如果你有興趣參與，請填下方的表格
+[參加試用](https://forms.gle/SiXXkaQzyCHuM2Gu5)
 
-__Endpoint__: `wss://max-stream.maicoin.com/ws`
+__連線網址__: `wss://max-stream.maicoin.com/ws`
 
-__Important note__
-> * price and volume should be string
-> * timestamp and depth should be number
+__重要須知__
+> * price, volume 會是字串
+> * timestamp, depth 會是數字
 
-## Keep connection
-You need to use ping frame to keep connection with server. If server doesn't receive your ping for 1 minute. The connection will be closed by server side. Some libraries will do this for you, so please check your library first.
+## 保持連線
+你必須用 ping 框架來保持與伺服器的連線。如果伺服器端在一分鐘之內沒有收到你的 ping，伺服器端將會主動關閉連線。有些套件會主動幫你完成這些事情，建議使用前請先閱讀該套件的說明。
 
 ```javascript
 const WebSocket = require('ws');
@@ -29,8 +29,8 @@ ws.on('pong', function incoming(data) {
 });
 ```
 
-## Response key alias
-We use short keys to reduce response size, please check out mappings below.
+## 鍵值表
+我們用短的鍵值來減少回應的封包大小，請先仔細閱讀以下的對照表。
 
 ```json
 "e": "event"
@@ -71,8 +71,8 @@ We use short keys to reduce response size, please check out mappings below.
 "gi": "group id"
 ```
 
-## Error response
-If you get any error response, it will be concentrated in an array.
+## 錯誤處理
+如果你收到伺服器端的回應是錯誤訊息的話，我們會將它集中在一個陣列裡面回應。
 
 ```json
 {

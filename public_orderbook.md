@@ -6,7 +6,7 @@ You need to specify book channel for subscribing order book, and indicate which 
 {
   "channel": "book",
   "market": "btctwd",
-  "depth": 1
+  "depth": 1 // optional
 }
 ```
 

@@ -5,7 +5,6 @@ Please apply api key and secret from http://max.maicoin.com/api_tokens first, fo
 Nonce is a timestamp in positive integer, stands for milliseconds elapsed since Unix epoch. Nonce must be within 30 seconds difference of server time.
 
 Create signature by using sha256 HMAC with your api secret to encode nonce.
-
 You can specify an id to mark your request, and it will be your reference for response.
 
 ## NodeJS example

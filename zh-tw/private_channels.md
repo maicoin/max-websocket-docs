@@ -1,11 +1,11 @@
-# Private channels subscription
+# 私人頻道
 
-Please see [Authentication](authentication.md) first.
+請先看 [驗證](authentication.md) 章節.
 
-## Order response
-This channel will return the message with your open orders.
+## 未成交訂單
+這個頻道會回傳你尚未成交的訂單
 
-### Snapshot
+### 快照
 ```json
 {
   "c": "user",
@@ -29,7 +29,7 @@ This channel will return the message with your open orders.
 }
 ```
 
-### Update
+### 更新
 ```json
 {
   "c": "user",
@@ -53,10 +53,10 @@ This channel will return the message with your open orders.
 }
 ```
 
-## Trade response
-This channel will return the message with your trades.
+## 交易
+這個頻道會回傳你成交的交易資料
 
-### Snapshot
+### 快照
 ```json
 {
   "c": "user",
@@ -78,7 +78,7 @@ This channel will return the message with your trades.
 }
 ```
 
-### Update
+### 更新
 ```json
 {
   "c": "user",
@@ -100,11 +100,10 @@ This channel will return the message with your trades.
 }
 ```
 
-## Account response
-This channel will return the message with your balances.
-Snapshot message includes all currencies in your wallet, and update only return the specified currency had changed.
+## 帳戶
+這個頻道會回傳你的帳戶資料，所謂快照是所有幣種的快照資訊，更新則是每個幣種有更新都會回傳。
 
-### Snapshot
+### 快照
 ```json
 {
   "c": "user",
@@ -121,7 +120,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
 }
 ```
 
-### Update
+### 更新
 ```json
 {
   "c": "user",
