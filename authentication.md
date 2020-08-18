@@ -32,6 +32,8 @@ const signature = hmac.update(""+nonce).digest("hex");
 ## Subscription with filters
 If you want to get the specified channels, you can use `filters` parameter. Please indicate what channel you want to listen.
 
+We support four types of filter included `order`, `trade`, `account`, `trade_update`. if you don't want to receive snapshot of your trades, please use `trade_update` instead of `trade`.
+
 ```json
 {
   "action": "auth",

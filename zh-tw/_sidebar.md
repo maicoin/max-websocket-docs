@@ -13,3 +13,4 @@
   * [未成交訂單](zh-tw/private_channels.md#未成交訂單)
   * [交易](zh-tw/private_channels.md#交易)
   * [帳戶](zh-tw/private_channels.md#帳戶)
+* [版本紀錄](zh-tw/changelog.md)

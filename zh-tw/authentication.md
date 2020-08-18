@@ -31,6 +31,8 @@ const signature = hmac.update(""+nonce).digest("hex");
 
 ## 指定訂閱
 如果你想指定訂閱某些頻道，可以使用 `filters` 參數，請條列你想訂閱的頻道在裡面。
+我們支援四種參數 `order`, `trade`, `account`, `trade_update`。
+前三者都會收到 snapshot 跟 update，最後一個是提供給只想訂閱 trade update 的人使用。
 
 ```json
 {

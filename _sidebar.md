@@ -13,3 +13,4 @@
   * [Order](private_channels.md#order-response)
   * [Trade](private_channels.md#trade-response)
   * [Account](private_channels.md#account-response)
+* [Changelog](changelog.md)

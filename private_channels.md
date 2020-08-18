@@ -55,6 +55,7 @@ This channel will return the message with your open orders.
 
 ## Trade response
 This channel will return the message with your trades.
+Snapshot includes all trades in the past 24 hours.
 
 ### Snapshot
 ```json

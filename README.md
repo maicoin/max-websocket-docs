@@ -1,8 +1,6 @@
 # Introduction
 
 Official documentation for the new redesign max websocket service
-We are in the beta testing right now. If you are interested, please fill the form below.
-[Early Access](https://forms.gle/SiXXkaQzyCHuM2Gu5)
 
 __Endpoint__: `wss://max-stream.maicoin.com/ws`
 
