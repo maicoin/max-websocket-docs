@@ -1,8 +1,6 @@
 # 介紹
 
 這是新設計的 MAX WebSocket 服務官方文件
-我們正在進行測試，如果你有興趣參與，請填下方的表格
-[參加試用](https://forms.gle/SiXXkaQzyCHuM2Gu5)
 
 __連線網址__: `wss://max-stream.maicoin.com/ws`
 
