@@ -23,7 +23,9 @@ This channel will return the message with your open orders.
      "v": "0.2658",
      "rv": "0.0",
      "ev": "0.2658",
-     "tc": 1
+     "tc": 1,
+     "ci": "client-oid-1",
+     "gi": 123 // group id
   }, ...],
   "T": 1521726960357
 }
@@ -47,7 +49,9 @@ This channel will return the message with your open orders.
      "v": "0.2658",
      "rv": "0.0",
      "ev": "0.2658",
-     "tc": 1
+     "tc": 1,
+     "ci": "client-oid-1",
+     "gi": 123 // group id
   }, ...],
   "T": 1521726960357
 }
@@ -71,9 +75,7 @@ Snapshot includes all trades in the past 24 hours.
     "sd": "bid",
     "f": "3.2",
     "fc": "twd",
-    "m": true,    // maker
-    "ci": "client-oid-1",
-    "gi": 123, // group id
+    "m": true    // maker
   }],
   "T": 1521726960357
 }
@@ -93,9 +95,7 @@ Snapshot includes all trades in the past 24 hours.
     "sd": "bid",
     "f": "3.2",
     "fc": "twd",
-    "m": true,    // maker
-    "ci": "client-oid-1",
-    "gi": 123, // group id
+    "m": true    // maker
   }],
   "T": 1521726960357
 }
@@ -114,7 +114,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
     {
       "cu": "btc",
       "av": "123.4",
-      "l": "0.5",
+      "l": "0.5"
     },
     ...
   ],
@@ -131,7 +131,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
     {
       "cu": "btc",
       "av": "123.4",
-      "l": "0.5",
+      "l": "0.5"
     },
     ...
   ],

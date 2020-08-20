@@ -66,6 +66,7 @@ ws.on('pong', function incoming(data) {
 "f": "fee"
 "oi": "order id"
 "tr": "trend"
+"ci": "client_oid"
 "gi": "group id"
 ```
 

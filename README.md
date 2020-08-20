@@ -66,6 +66,7 @@ We use short keys to reduce response size, please check out mappings below.
 "f": "fee"
 "oi": "order id"
 "tr": "trend"
+"ci": "client_oid"
 "gi": "group id"
 ```
 
