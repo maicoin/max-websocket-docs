@@ -1,6 +1,6 @@
 # Introduction
 
-Official documentation for the new redesign max websocket service
+Official documentation for the new redesign MAX Exchange websocket service
 
 __Endpoint__: `wss://max-stream.maicoin.com/ws`
 
@@ -30,45 +30,51 @@ ws.on('pong', function incoming(data) {
 ## Response key alias
 We use short keys to reduce response size, please check out mappings below.
 
-```json
-"e": "event"
-"E": "errors"
-"c": "channel"
-"i": "id"
-"s": "subscription"
-"T": "timestamp", "created_at"
-"U": "updated_at"
-"a": "asks"
-"b": "bids"
-"M": "market"
-"m": "maker"
-"p": "price"
-"v": "volume"
-"O": "open"
-"H": "high"
-"L": "low"
-"C": "close"
-"o": "orders"
-"t": "trades"
-"sd": "side"
-"rv": "remaining_volume"
-"ev": "executed_volume", "filled"
-"S": "state"
-"ot": "ord_type"
-"sp": "stop_price"
-"ap": "avg_price"
-"tc": "trade_count"
-"B": "balances"
-"cu": "currency"
-"fc": "fee currency"
-"av": "available"
-"l": "locked"
-"f": "fee"
-"oi": "order id"
-"tr": "trend"
-"ci": "client_oid"
-"gi": "group id"
-```
+| abbr | meaning            | comment             |
+| ---- | ------------------ | ------------------- |
+| `e`  | `event`            | 
+| `E`  | `errors`           | 
+| `c`  | `channel`          | 
+| `i`  | `id`               | 
+| `s`  | `subscription`     | 
+| `T`  | `at`               | // or `created_at` |
+| `ST` | `startTime`        | 
+| `ET` | `endTime`          | 
+| `k`  | `kline`            | 
+| `a`  | `asks`             | 
+| `b`  | `bids`             | 
+| `M`  | `market`           | 
+| `m`  | `maker`            | 
+| `p`  | `price`            | 
+| `v`  | `volume`           | 
+| `O`  | `open`             | 
+| `C`  | `close`            | 
+| `H`  | `high`             | 
+| `L`  | `low`              | 
+| `tk` | `ticker`           | 
+| `o`  | `orders`           | 
+| `t`  | `trades`           | 
+| `sd` | `side`             | 
+| `ot` | `ord_type`         | 
+| `sp` | `stop_price`       | 
+| `ap` | `avg_price`        | 
+| `tc` | `trade_count`      | 
+| `B`  | `balances`         | 
+| `rv` | `remaining_volume` | 
+| `ev` | `executed_volume`  | or `filled` |
+| `qv` | `quote_volume`     | quote volume used in kline |
+| `S`  | `state`            | 
+| `R`  | `resolution`       | kline resolution |
+| `cu` | `currency`         | 
+| `fc` | `fee currency`     | 
+| `av` | `available`        | 
+| `l`  | `locked`           | 
+| `f`  | `fee`              | 
+| `oi` | `order id`         | in trade |
+| `ti` | `trade id`         | 
+| `tr` | `trend`            | 
+
+
 
 ## Error response
 If you get any error response, it will be concentrated in an array.
