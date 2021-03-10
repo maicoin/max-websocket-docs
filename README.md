@@ -73,6 +73,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `oi` | `order id`         | in trade |
 | `ti` | `trade id`         | 
 | `tr` | `trend`            | 
+| `co` | `code`             |
 
 
 
