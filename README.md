@@ -77,9 +77,6 @@ We use short keys to reduce response size, please check out mappings below.
 | `_q` |                    |
 | `_t` |                    |
 
-| `_t` |                    |
-
-
 
 ## Error response
 If you get any error response, it will be concentrated in an array.
