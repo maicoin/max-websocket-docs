@@ -74,6 +74,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `ti` | `trade id`         | 
 | `tr` | `trend`            | 
 | `co` | `code`             |
+| `_rq`|                    |
 
 
 
