@@ -58,6 +58,8 @@ We use short keys to reduce response size, please check out mappings below.
 | `ot` | `ord_type`         | 
 | `sp` | `stop_price`       | 
 | `ap` | `avg_price`        | 
+| `aps`|                    |
+| `ps` |                    |
 | `tc` | `trade_count`      | 
 | `B`  | `balances`         | 
 | `rv` | `remaining_volume` | 
