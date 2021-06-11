@@ -69,6 +69,8 @@ ws.on('pong', function incoming(data) {
 "ci": "client_oid"
 "gi": "group id"
 "co": "code"
+"ps": ""
+"aps": ""
 ```
 
 ## 錯誤處理
