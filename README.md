@@ -44,6 +44,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `a`  | `asks`             | 
 | `b`  | `bids`             | 
 | `M`  | `market`           | 
+| `ms` | `markets`          |
 | `m`  | `maker`            | 
 | `p`  | `price`            | 
 | `v`  | `volume`           | 
