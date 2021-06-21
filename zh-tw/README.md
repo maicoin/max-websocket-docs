@@ -41,6 +41,7 @@ ws.on('pong', function incoming(data) {
 "a": "asks"
 "b": "bids"
 "M": "market"
+"ms": "markets"
 "m": "maker"
 "p": "price"
 "v": "volume"
