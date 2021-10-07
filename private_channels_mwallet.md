@@ -194,7 +194,7 @@ This channel will return the message with your asset/debt ratio of mwallet.
 
 ## MWallet borrowing response
 
-This channel will return your borrowing principal and interest of nwallet.
+This channel will return your borrowing principal and interest of mwallet.
 
 ### Snapshot
 
