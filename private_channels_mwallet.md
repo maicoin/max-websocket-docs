@@ -6,7 +6,7 @@ If you want to subscribe MWallet related websocket channels, please specify foll
 
 Currently supported filters: `mwallet_order`, `mwallet_trade`, `mwallet_account`, `ad_ratio` and `borrowing`.
 
-## MWallet Order response
+## MWallet order response
 
 This channel will return the message with your open orders of mwallet.
 
@@ -66,7 +66,7 @@ This channel will return the message with your open orders of mwallet.
   "T":1633415966510}
 ```
 
-## MWallet Trade response
+## MWallet trade response
 
 This channel will return the message with your trades of mwallet.
 Snapshot includes the last 100 trades.
@@ -115,7 +115,7 @@ Snapshot includes the last 100 trades.
 }
 ```
 
-## MWallet Account response
+## MWallet account response
 
 This channel will return the message with your balances of mwallet.
 Snapshot message includes all currencies in your wallet, and update only return the specified currency had changed.
@@ -156,7 +156,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
 }
 ```
 
-## MWallet AD ratio Response
+## MWallet AD ratio response
 
 This channel will return the message with your asset/debt ratio of mwallet.
 
@@ -192,7 +192,7 @@ This channel will return the message with your asset/debt ratio of mwallet.
 }
 ```
 
-## MWallet Borrowing Response
+## MWallet borrowing response
 
 This channel will return your borrowing principal and interest of nwallet.
 
