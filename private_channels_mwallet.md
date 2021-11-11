@@ -167,10 +167,17 @@ This channel will return the message with your asset/debt ratio of mwallet.
   "c": "user",
   "e": "ad_ratio_snapshot",      
   "ad": {
-      "ad": "38.08306432",     // ad_ratio
-      "as": "132071.22",       // asset_in_usdt
-      "db": "3467.97775784",   // debt_in_usdt
-      "TU": 1521726960300      // updated_time
+      "ad": "38.08306432",           // ad_ratio
+      "as": "132071.22",             // asset_in_usdt
+      "db": "3467.97775784",         // debt_in_usdt
+      "idxp": [                      // index price
+          {             
+              "M": "btcusdt",        // market
+              "p": "63190.045"       // price
+          }, 
+          ...
+      ],
+      "TU": 1521726960300           // updated_time
   },
   "T": 1521726960357
 }
@@ -183,10 +190,17 @@ This channel will return the message with your asset/debt ratio of mwallet.
   "c": "user",
   "e": "ad_ratio_update",      
   "ad": {
-      "ad": "38.08306432",     // ad_ratio
-      "as": "132071.22",       // asset_in_usdt
-      "db": "3467.97775784",   // debt_in_usdt
-      "TU": 1521726960300      // updated_time
+      "ad": "38.08306432",           // ad_ratio
+      "as": "132071.22",             // asset_in_usdt
+      "db": "3467.97775784",         // debt_in_usdt
+      "idxp": [                      // index price
+          {             
+              "M": "btcusdt",        // market
+              "p": "63190.045"       // price
+          }, 
+          ...
+      ],
+      "TU": 1521726960300           // updated_time
   },
   "T": 1521726960357
 }
