@@ -6,7 +6,8 @@
 這個頻道會回傳你尚未成交的訂單
 
 ### 快照
-```json
+
+```js
 {
   "c": "user",
   "e": "order_snapshot",
@@ -62,7 +63,7 @@
 
 ### 快照
 
-```json
+```js
 {
   "c": "user",
   "e": "trade_snapshot",
@@ -83,7 +84,8 @@
 ```
 
 ### 更新
-```json
+
+```js
 {
   "c": "user",
   "e": "trade_update",
@@ -107,7 +109,8 @@
 這個頻道會回傳你的帳戶資料，所謂快照是所有幣種的快照資訊，更新則是每個幣種有更新都會回傳。
 
 ### 快照
-```json
+
+```js
 {
   "c": "user",
   "e": "account_snapshot",
