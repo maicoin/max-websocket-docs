@@ -24,7 +24,7 @@
      "rv": "0.0",
      "ev": "0.2658",
      "tc": 1,
-    "ci": "client-oid-1",
+     "ci": "client-oid-1",
      "gi": 123 // group id
   }, ...],
   "T": 1521726960357
@@ -61,20 +61,22 @@
 這個頻道會回傳你成交的交易資料
 
 ### 快照
+
 ```json
 {
   "c": "user",
   "e": "trade_snapshot",
   "t": [{
     "i": 68444, // trade id
-    "p": "21499.0",
-    "v": "0.2658",
-    "M": "ethtwd",
-    "T": 1521726960357,
-    "sd": "bid",
-    "f": "3.2",
-    "fc": "twd",
-    "m": true    // maker
+    "p": "21499.0", // price
+    "v": "0.2658", // volume
+    "M": "ethtwd", // market ID
+    "T": 1521726960357, // millisecond timestamp
+    "sd": "bid", // side
+    "f": "3.2", // fee
+    "fc": "twd", // fee currency
+    "oi": 33445566, // order id
+    "m": true    // liquidity = maker
   }],
   "T": 1521726960357
 }
@@ -94,7 +96,8 @@
     "sd": "bid",
     "f": "3.2",
     "fc": "twd",
-    "m": true    // maker
+    "oi": 33445566, // order id    
+    "m": true    // liquidity = maker
   }],
   "T": 1521726960357
 }
