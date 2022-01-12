@@ -158,7 +158,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
 
 ## MWallet AD ratio response
 
-This channel will return the message with your asset/debt ratio of mwallet.
+This channel will return the message with your AD ratio of mwallet.
 
 ### Snapshot
 

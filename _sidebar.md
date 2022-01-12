@@ -10,6 +10,7 @@
   * [Ticker](public_ticker.md#ticker-subscription)
   * [Kline](public_kline.md#kline-subscription)
   * [Market Status](public_market_status.md#market-status-subscription)
+  * [MWallet Pool Quota](public_mwallet_pool_quota.md#mwallet-pool-quota-subscription)
 * [Authentication](authentication.md)
 * [Private Channels](private_channels.md#private-channels-subscription)
   * [Order](private_channels.md#order-response)
