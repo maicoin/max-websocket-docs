@@ -75,6 +75,8 @@ We use short keys to reduce response size, please check out mappings below.
 | `f`  | `fee`              | 
 | `oi` | `order id`         | in trade |
 | `ti` | `trade id`         | 
+| `ci` | `client oid`       | 
+| `gi` | `group id`         | 
 | `tr` | `trend`            | 
 | `co` | `code`             |
 | `_q` |                    |
