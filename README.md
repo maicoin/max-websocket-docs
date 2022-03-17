@@ -38,6 +38,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `i`  | `id`               | 
 | `s`  | `subscription`     | 
 | `T`  | `at`               | // or `created_at` |
+| `TU` | `updated_at`       |
 | `ST` | `startTime`        | 
 | `ET` | `endTime`          | 
 | `k`  | `kline`            | 
