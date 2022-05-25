@@ -95,7 +95,8 @@ Snapshot includes the last 100 trades.
     "p": "21499.0",
     "v": "0.2658",
     "M": "ethtwd",
-    "T": 1521726960357,
+    "T": 1521726960357, // creation time
+    "TU": 1521726960457, // update time
     "sd": "bid",
     "f": "3.2",
     "fc": "twd",
