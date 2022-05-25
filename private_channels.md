@@ -47,8 +47,8 @@ This channel will return the message with your open orders.
      "ap": "21499.0",
      "S": "done",
      "M": "ethtwd",
-     "T": 1521726960123,
-     "TU": 1521726960123, // the last trade update timestamp
+     "T": 1521726960123,  // created_at
+     "TU": 1521726960123, // updated_at
      "v": "0.2658",
      "rv": "0.0",
      "ev": "0.2658",
