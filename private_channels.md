@@ -92,6 +92,7 @@ Snapshot includes the last 100 trades.
   "e": "trade_update",
   "t": [{
     "i": 68444, // trade id
+    "oi": 4439001, // order id
     "p": "21499.0",
     "v": "0.2658",
     "M": "ethtwd",
