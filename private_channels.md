@@ -6,6 +6,7 @@ Please see [Authentication](authentication.md) first.
 This channel will return the message with your open orders.
 
 ### Snapshot
+
 ```json
 {
   "c": "user",
@@ -32,6 +33,7 @@ This channel will return the message with your open orders.
 ```
 
 ### Update
+
 ```json
 {
   "c": "user",
@@ -45,7 +47,8 @@ This channel will return the message with your open orders.
      "ap": "21499.0",
      "S": "done",
      "M": "ethtwd",
-     "T": 1521726960123,
+     "T": 1521726960123,  // created_at
+     "TU": 1521726960123, // updated_at
      "v": "0.2658",
      "rv": "0.0",
      "ev": "0.2658",
@@ -82,16 +85,19 @@ Snapshot includes the last 100 trades.
 ```
 
 ### Update
+
 ```json
 {
   "c": "user",
   "e": "trade_update",
   "t": [{
     "i": 68444, // trade id
+    "oi": 4439001, // order id
     "p": "21499.0",
     "v": "0.2658",
     "M": "ethtwd",
-    "T": 1521726960357,
+    "T": 1521726960357, // creation time
+    "TU": 1521726960457, // update time
     "sd": "bid",
     "f": "3.2",
     "fc": "twd",
