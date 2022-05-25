@@ -1,4 +1,6 @@
-# Introduction
+# MAX Exchange WebSocket API
+
+## Introduction
 
 Official documentation for the new redesign MAX Exchange websocket service
 
@@ -9,6 +11,7 @@ __Important note__
 > * timestamp and depth should be number
 
 ## Keep connection
+
 You need to use ping frame to keep connection with server. If server doesn't receive your ping for 130 seconds, the connection will be closed by server side. Some libraries will do this for you, so please check your library first.
 
 ```javascript
