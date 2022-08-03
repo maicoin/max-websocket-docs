@@ -169,7 +169,7 @@ Snapshot message includes all currencies in your wallet, and update only return 
 | `c`             | string                    | channel
 | `e`             | string                    | event (`account_snapshot` or `account_update`)
 | `B`             | array of balances         | balances
-| (under the `B`) | ------------------------- | --------------
+| (under the `B`) | ---                       | --- 
 | `cu`            | string                    | currency
 | `av`            | string of float           | available
 | `l`             | string of float           | locked
