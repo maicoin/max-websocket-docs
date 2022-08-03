@@ -8,6 +8,7 @@
   * [Orderbook](public_orderbook.md#orderbook-subscription)
   * [Trade](public_trade.md#trade-subscription)
   * [Ticker](public_ticker.md#ticker-subscription)
+  * [Market Status](public_market_status.md#market-status-subscription)
 * [Authentication](authentication.md)
 * [Private Channels](private_channels.md#private-channels-subscription)
   * [Order](private_channels.md#order-response)
