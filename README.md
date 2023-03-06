@@ -88,6 +88,7 @@ We use short keys to reduce response size, please check out mappings below.
 
 
 ## Error response
+
 If you get any error response, it will be concentrated in an array.
 
 ```json
@@ -95,6 +96,29 @@ If you get any error response, it will be concentrated in an array.
   "e": "error",
   "E": ["...."],
   "i": "client1",
-  "T": 123456789
+  "T": 1234567890000
 }
 ```
+
+### Example
+
+When you send a command with invalid action, you will get following error message:
+
+```json
+{
+  "e": "error",
+  "E": [ "E-1004: invalid action"],
+  "i": "client1",
+  "T": 1678096431125
+}
+```
+
+### Error type 
+
+| code | error message                                    | description             
+| ---- | ------------------------------------------------ | ------------------- 
+| 1004 | invalid action                                   | The action in `action` field is not supported.
+| 1005 | invalid json                                     | The command is not in a valid JSON format.
+| 1006 | invalid nonce (difference of 30 seconds or more) | The difference between the nonce you provided and the server's nonce is more than 30 seconds.
+| 1007 | authentication failed                            | Not authenticated. Might need to check your api key/secret or the way you send auth command.
+| 1012 | nonce has already been used                      | The nonce you provided has already been used.
