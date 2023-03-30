@@ -3,7 +3,8 @@
 Please see [Authentication](authentication.md) first.
 
 ## Order response
-This channel will return the message with your open orders.
+
+This channel is designed to help you in tracking your open orders. When authenticating with the `order` filter specified, we will first return all of your existing open orders (also known as an order snapshot). Subsequently, if there are any updates to your orders, we will return order update messages.
 
 ### Field
 
@@ -88,8 +89,7 @@ This channel will return the message with your open orders.
 
 ## Trade response
 
-This channel will return the message with your trades.
-Snapshot includes the last 100 trades.
+This channel is created to assist you in monitoring your trades. When you authenticate with the `trade` filter specified, we will initially provide you with the last 100 trades as a trade snapshot. After that, if there are any updates to your trades, we will send you trade update messages.
 
 ### Field
 
@@ -158,9 +158,7 @@ Snapshot includes the last 100 trades.
 
 ## Account response
 
-This channel will return the message with your balances.
-Snapshot message includes all currencies in your wallet, and update only return the specified currency had changed.
-
+This channel provides you with information regarding your account balances. When you authenticate with the `account` filter specified, we will initially provide you with a snapshot message that includes all currencies in your wallet. Subsequently, if there is any change in the balance of any currency, we will send you an update message.
 
 ### Field
 
