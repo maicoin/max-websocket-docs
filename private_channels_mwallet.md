@@ -8,7 +8,32 @@ Currently supported filters: `mwallet_order`, `mwallet_trade`, `mwallet_account`
 
 ## MWallet order response
 
-This channel will return the message with your open orders of mwallet.
+This channel is designed to help you in tracking your open orders of mwalletå. When authenticating with the `mwallet_order` filter specified, we will first return all of your existing open orders of mwallet. Subsequently, if there are any updates to your mwallet orders, we will return order update messages.
+
+### Field
+
+| Abbr            | Type                      | Description                                          |
+| --------------- | --------------------------| -----------------------------------------------------|
+| `c`             | string                    | channel
+| `e`             | string                    | event (`mwallet_order_snapshot` or `mwallet_order_update`)
+| `o`             | array of orders           | orders
+| (under the `o`) | ---                       | ---
+| `i`             | int                       | id
+| `sd`            | string                    | side (`bid` or `ask`)
+| `ot`            | string                    | order type (`limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`)
+| `p`             | string of float           | price
+| `sp`            | string of float or `null` | stop price
+| `ap`            | string of float           | average price
+| `v`             | string of float           | volume
+| `rv`            | string of float           | remain volume
+| `ev`            | string of float           | executed volume
+| `S`             | string                    | state
+| `M`             | string                    | market
+| `tc`            | int                       | trade count
+| `T`             | int                       | order created time, unix timestamp in millisecond
+| `TU`            | int                       | order updated time, unix timestamp in millisecond
+| `gi`            | int or `null`             | group order id
+| `ci`            | string or `null`          | client specific order id
 
 ### Snapshot
 
@@ -68,8 +93,27 @@ This channel will return the message with your open orders of mwallet.
 
 ## MWallet trade response
 
-This channel will return the message with your trades of mwallet.
-Snapshot includes the last 100 trades.
+This channel is created to assist you in monitoring your mwallet trades. When you authenticate with the `mwallet_trade` filter specified, we will initially provide you with the last 100 trades as a trade snapshot. After that, if there are any updates to your mwallet trades, we will send you trade update messages.
+
+### Field
+
+| Abbr            | Type                      | Description                                          |
+| --------------- | --------------------------| -----------------------------------------------------|
+| `c`             | string                    | channel
+| `e`             | string                    | event (`mwallet_trade_snapshot` or `mwallet_trade_update`)
+| `t`             | array of trades           | trades
+| (under the `t`) | ---                       | ---  
+| `i`             | int                       | id
+| `M`             | string                    | market
+| `sd`            | string                    | side (`bid` or `ask`)
+| `p`             | string of float           | price
+| `v`             | string of float           | volume
+| `f`             | string of float           | fee
+| `fc`            | string                    | fee currency
+| `T`             | int                       | trade created time, unix timestamp in millisecond
+| `TU`            | int                       | trade updated time, unix timestamp in millisecond
+| `m`             | bool                      | maker
+| `oi`            | int                       | order id
 
 ### Snapshot
 ```json
@@ -117,8 +161,21 @@ Snapshot includes the last 100 trades.
 
 ## MWallet account response
 
-This channel will return the message with your balances of mwallet.
-Snapshot message includes all currencies in your wallet, and update only return the specified currency had changed.
+This channel provides you with information regarding your account balances of mwallet. When you authenticate with the `mwallet_account` filter specified, we will initially provide you with a snapshot message that includes all currencies in your mwallet. Subsequently, if there is any change in the balance of any currency, we will send you an update message.
+
+### Field
+
+| Abbr            | Type                      | Description
+| --------------- | ------------------------- |--------------- 
+| `c`             | string                    | channel
+| `e`             | string                    | event (`mwallet_account_snapshot` or `mwallet_account_update`)
+| `B`             | array of balances         | balances
+| (under the `B`) | ---                       | --- 
+| `cu`            | string                    | currency
+| `av`            | string of float           | available
+| `l`             | string of float           | locked
+| `stk`           | string of float or `null` | staked
+| `TU`            | int                       | balance updated time, unix timestamp in millisecond
 
 ### Snapshot
 
@@ -130,7 +187,8 @@ Snapshot message includes all currencies in your wallet, and update only return 
     {
       "cu": "btc",
       "av": "123.4",
-      "l": "0.5"
+      "l": "0.5",
+      "stk": null,
     },
     ...
   ],
@@ -148,7 +206,8 @@ Snapshot message includes all currencies in your wallet, and update only return 
     {
       "cu": "btc",
       "av": "123.4",
-      "l": "0.5"
+      "l": "0.5",
+      "stk": null,
     },
     ...
   ],
@@ -160,24 +219,41 @@ Snapshot message includes all currencies in your wallet, and update only return 
 
 This channel will return the message with your AD ratio of mwallet.
 
+### Field
+
+| Abbr                  | Type                      | Description
+| --------------------- | ------------------------- |--------------- 
+| `c`                   | string                    | channel
+| `e`                   | string                    | event (`ad_ratio_snapshot` or `ad_ratio_update`)
+| `ad`                  | AD ratio                  | AD ratio
+| (under the `ad`)      | ---                       | --- 
+| `ad`                  | string of float           | AD ratio
+| `as`                  | string of float           | asset in usdt
+| `db`                  | string of float           | debt in usdt
+| `TU`                  | int                       | updated time, unix timestamp in millisecond
+| `idxp`                | array of index price      | index price
+| (under the `ad.idxp`) | ---                       | --- 
+| `M`                   | string                    | market of index price 
+| `p`                   | string of float           | price of index price
+
 ### Snapshot
 
 ```
 {
   "c": "user",
-  "e": "ad_ratio_snapshot",      
+  "e": "ad_ratio_snapshot",
   "ad": {
-      "ad": "38.08306432",           // ad_ratio
-      "as": "132071.22",             // asset_in_usdt
-      "db": "3467.97775784",         // debt_in_usdt
-      "idxp": [                      // index price
+      "ad": "38.08306432",
+      "as": "132071.22",
+      "db": "3467.97775784",
+      "idxp": [
           {             
-              "M": "btcusdt",        // market
-              "p": "63190.045"       // price
+              "M": "btcusdt",
+              "p": "63190.045"
           }, 
           ...
       ],
-      "TU": 1521726960300           // updated_time
+      "TU": 1521726960300
   },
   "T": 1521726960357
 }
@@ -210,18 +286,32 @@ This channel will return the message with your AD ratio of mwallet.
 
 This channel will return your borrowing principal and interest of mwallet.
 
+### Field
+
+| Abbr            | Type                      | Description
+| --------------- | ------------------------- |--------------- 
+| `c`             | string                    | channel
+| `e`             | string                    | event (`borrowing_snapshot` or `borrowing_update`)
+| `db`            | array of debt             |
+| (under the `db`)| ---                       | --- 
+| `cu`            | string                    | currency
+| `dbp`           | string of float           | debt principal
+| `dbi`           | string of float           | debt interest
+| `TU`            | int                       | updated time, unix timestamp in millisecond
+
+
 ### Snapshot
 
 ```
 {
   "c": "user",
-  "e": "borrowing_snapshot",      
-  "db": [                       // debt
+  "e": "borrowing_snapshot",
+  "db": [ 
     {
       "cu": "usdt",
-      "dbp": "500.0",           // debt_principal
-      "dbi": "0.00004488",      // debt_interest
-      "TU": 1521726960300       // updated_time
+      "dbp": "500.0",
+      "dbi": "0.00004488",
+      "TU": 1521726960300
     }, ...
   ],
   "T": 1521726960357
@@ -233,13 +323,13 @@ This channel will return your borrowing principal and interest of mwallet.
 ```
 {
   "c": "user",
-  "e": "borrowing_update",      
-  "db": [                       // debt
+  "e": "borrowing_update",
+  "db": [ 
     {
       "cu": "usdt",
-      "dbp": "500.0",           // debt_principal
-      "dbi": "0.00004488",      // debt_interest
-      "TU": 1521726960300       // updated_time
+      "dbp": "500.0",
+      "dbi": "0.00004488",
+      "TU": 1521726960300
     }
   ],
   "T": 1521726960357
