@@ -15,6 +15,7 @@
  "e": "snapshot",
  "M": "btctwd",
  "tk": {
+    "M": "btctwd", // same as the above "M"
     "O": "280007.1",
     "H": "280017.2",
     "L": "280005.3",
@@ -32,6 +33,7 @@
  "e": "update",
  "M": "btctwd",
  "tk": {
+    "M": "btctwd", // same as the above "M"
     "O": "280007.1",
     "H": "280017.2",
     "L": "280005.3",
