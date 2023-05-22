@@ -8,6 +8,23 @@
 ```
 ## Success response
 
+### Field
+
+| Abbr             | Type                      | Description                                          |
+| ---------------- | --------------------------| -----------------------------------------------------|
+| `c`              | string                    | channel
+| `e`              | string                    | event (`snapshot` or `update`)
+| `M`              | string                    | market
+| `tk`             | ticker data               | ticker
+| (under the `tk`) | ---                       | ---
+| `M`              | string                    | market
+| `O`              | string of float           | open
+| `H`              | string of float           | high
+| `L`              | string of float           | low
+| `C`              | string of float           | close
+| `v`              | string of float           | volume
+
+
 ### Snapshot
 ```json
 {
@@ -15,6 +32,7 @@
  "e": "snapshot",
  "M": "btctwd",
  "tk": {
+    "M": "btctwd", // same as the above "M"
     "O": "280007.1",
     "H": "280017.2",
     "L": "280005.3",
@@ -32,6 +50,7 @@
  "e": "update",
  "M": "btctwd",
  "tk": {
+    "M": "btctwd", // same as the above "M"
     "O": "280007.1",
     "H": "280017.2",
     "L": "280005.3",
