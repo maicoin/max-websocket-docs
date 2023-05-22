@@ -8,6 +8,23 @@
 ```
 ## Success response
 
+### Field
+
+| Abbr             | Type                      | Description                                          |
+| ---------------- | --------------------------| -----------------------------------------------------|
+| `c`              | string                    | channel
+| `e`              | string                    | event (`snapshot` or `update`)
+| `M`              | string                    | market
+| `tk`             | ticker data               | ticker
+| (under the `tk`) | ---                       | ---
+| `M`              | string                    | market
+| `O`              | string of float           | open
+| `H`              | string of float           | high
+| `L`              | string of float           | low
+| `C`              | string of float           | close
+| `v`              | string of float           | volume
+
+
 ### Snapshot
 ```json
 {
