@@ -23,6 +23,7 @@
 | `L`              | string of float           | low
 | `C`              | string of float           | close
 | `v`              | string of float           | volume
+| `V`              | string of float           | volume in BTC
 
 
 ### Snapshot
@@ -37,7 +38,8 @@
     "H": "280017.2",
     "L": "280005.3",
     "C": "280004.5",
-    "v": "71.01"
+    "v": "71.01",
+    "V": "71.01" // volumes in BTC
  },
  "T": 123456789
 }
@@ -55,7 +57,8 @@
     "H": "280017.2",
     "L": "280005.3",
     "C": "280004.5",
-    "v": "71.01"
+    "v": "71.01",
+    "V": "71.01" // volumes in BTC
  },
  "T": 123456789
 }
