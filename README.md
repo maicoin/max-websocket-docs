@@ -56,6 +56,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `C`  | `close`            | 
 | `H`  | `high`             | 
 | `L`  | `low`              | 
+| `V`  | `volume in BTC`    |
 | `tk` | `ticker`           | 
 | `o`  | `orders`           | 
 | `t`  | `trades`           | 
