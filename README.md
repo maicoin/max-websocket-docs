@@ -75,6 +75,7 @@ We use short keys to reduce response size, please check out mappings below.
 | `R`  | `resolution`       | kline resolution |
 | `cu` | `currency`         | 
 | `fc` | `fee currency`     | 
+| `fd` | `fee discounted`   | fee is discounted or not (e.g. use MAX TOKEN to pay fee) |
 | `av` | `available`        | 
 | `l`  | `locked`           | 
 | `f`  | `fee`              | 
