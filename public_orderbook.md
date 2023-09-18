@@ -39,17 +39,5 @@ When you subscribed successful, you will get an order book snapshot response, yo
 
 ## Maintain your own order book
 
-Separate two arrays to store sorted price for bid and ask, and use price-volume mapping to store volume.
-
 1. if you get snapshot, use response to initialize your order book.
 2. if you get updates, when volume is 0 means to remove this price level, otherwise to add this price level to ask or bid, resort array and keep it in your mappings.
-
-```json
-// Orderbook
-{
-  "ask_prices": [],  // sorted from min to max
-  "bid_prices": [],  // sorted from min to max
-  "ask_volumes": {}, // {"price": "volume"}
-  "bid_volumes": {}  // {"price": "volume"}
-}
-```
