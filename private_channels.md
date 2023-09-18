@@ -107,6 +107,7 @@ This channel is created to assist you in monitoring your trades. When you authen
 | `f`             | string of float           | fee
 | `fc`            | string                    | fee currency
 | `fd`            | bool                      | fee is discounted or not (e.g. use MAX TOKEN to pay fee)
+| `fn` .          | string                    | funds
 | `T`             | int                       | trade created time, unix timestamp in millisecond
 | `TU`            | int                       | trade updated time, unix timestamp in millisecond
 | `m`             | bool                      | maker
@@ -126,6 +127,7 @@ This channel is created to assist you in monitoring your trades. When you authen
     "f": "3.2",
     "fc": "twd",
     "fd": false,
+    "fn": "5714.4342",
     "T": 1659216053748,
     "TU": 1659216054046,
     "m": true,
@@ -150,6 +152,7 @@ This channel is created to assist you in monitoring your trades. When you authen
     "f": "3.2",
     "fc": "twd",
     "fd": false,
+    "fn": "5714.4342",
     "T": 1659216053748,
     "TU": 1659216054046,
     "m": true,
