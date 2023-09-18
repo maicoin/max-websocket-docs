@@ -107,7 +107,7 @@ This channel is created to assist you in monitoring your trades. When you authen
 | `f`             | string of float           | fee
 | `fc`            | string                    | fee currency
 | `fd`            | bool                      | fee is discounted or not (e.g. use MAX TOKEN to pay fee)
-| `fn` .          | string                    | funds
+| `fn` .          | string                    | funds, the quote balance used in this trade.
 | `T`             | int                       | trade created time, unix timestamp in millisecond
 | `TU`            | int                       | trade updated time, unix timestamp in millisecond
 | `m`             | bool                      | maker
