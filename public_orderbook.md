@@ -1,6 +1,7 @@
 # Order book Subscription
 
-You need to specify book channel for subscribing order book, and indicate which market you want to subscribe in subscriptions. We also provide `depth` parameter to let you get limit level response. we only support for three kinds of depth: 1, 5, 10.
+You need to specify book channel for subscribing order book, and indicate which market you want to subscribe in subscriptions. We also provide `depth` parameter to let you get limit level response. we only support for three kinds of depth: 1, 5, 10, 20, 50 (default is 50).
+
 
 ```json
 {
