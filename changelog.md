@@ -1,3 +1,9 @@
+## 5.120.0 (2023-12-04)
+
+### New Features
+* rate limit alert when your request messages over 20 per second (only alert message)
+* rate limit alert when your request messages over 200 per minute (only alert message)
+
 ## 1.3.0 (2020-08-18)
 
 ### Bug Fixes

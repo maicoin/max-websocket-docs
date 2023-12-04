@@ -17,3 +17,4 @@
   * [Account](private_channels.md#account-response)
 * [Community](community.md)
 * [Changelog](changelog.md)
+* [Upcoming Changes](upcoming_changes.md)
