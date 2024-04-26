@@ -1,3 +1,9 @@
+## 6.1.0 (2024-01-05)
+
+### New Features
+* rate limit when your request messages over 20 per second
+* rate limit when your request messages over 200 per minute
+
 ## 5.120.0 (2023-12-04)
 
 ### New Features
