@@ -9,6 +9,8 @@ __Endpoint__: `wss://max-stream.maicoin.com/ws`
 __Important note__
 > * price and volume should be string
 > * timestamp and depth should be number
+> * rate limit when your request message over 20 per second
+> * rate limit when your request message over 200 per minute
 
 ## Keep connection
 
