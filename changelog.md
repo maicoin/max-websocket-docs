@@ -1,3 +1,9 @@
+## 6.66.0 (2024-05-13)
+
+### New Features
+* rate limit when your ip connection over 1440 per day
+
+
 ## 6.1.0 (2024-01-05)
 
 ### New Features

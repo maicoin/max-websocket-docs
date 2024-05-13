@@ -11,6 +11,7 @@ __Important note__
 > * timestamp and depth should be number
 > * rate limit when your request message over 20 per second
 > * rate limit when your request message over 200 per minute
+> * rate limit when your ip connection over 1440 per day
 
 ## Keep connection
 
