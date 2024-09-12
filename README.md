@@ -36,60 +36,63 @@ ws.on('pong', function incoming(data) {
 ## Response key alias
 We use short keys to reduce response size, please check out mappings below.
 
-| abbr | meaning            | comment             |
-| ---- | ------------------ | ------------------- |
-| `e`  | `event`            | 
-| `E`  | `errors`           | 
-| `c`  | `channel`          | 
-| `i`  | `id`               | 
-| `s`  | `subscription`     | 
-| `T`  | `at`               | // or `created_at` |
-| `TU` | `updated_at`       |
-| `ST` | `startTime`        | 
-| `ET` | `endTime`          | 
-| `k`  | `kline`            | 
-| `a`  | `asks`             | 
-| `b`  | `bids`             | 
-| `M`  | `market`           | 
-| `ms` | `markets`          |
-| `m`  | `maker`            | 
-| `p`  | `price`            | 
-| `v`  | `volume`           | 
-| `O`  | `open`             | 
-| `C`  | `close`            | 
-| `H`  | `high`             | 
-| `L`  | `low`              | 
-| `V`  | `volume in BTC`    |
-| `tk` | `ticker`           | 
-| `o`  | `orders`           | 
-| `t`  | `trades`           | 
-| `sd` | `side`             | 
-| `ot` | `ord_type`         | 
-| `sp` | `stop_price`       | 
-| `ap` | `avg_price`        | 
-| `aps`|                    |
-| `ps` |                    |
-| `tc` | `trade_count`      | 
-| `B`  | `balances`         | 
-| `rv` | `remaining_volume` | 
-| `ev` | `executed_volume`  | or `filled` |
-| `qv` | `quote_volume`     | quote volume used in kline |
-| `S`  | `state`            | 
-| `R`  | `resolution`       | kline resolution |
-| `cu` | `currency`         | 
-| `fc` | `fee currency`     | 
-| `fd` | `fee discounted`   | fee is discounted or not (e.g. use MAX TOKEN to pay fee) |
-| `av` | `available`        | 
-| `l`  | `locked`           | 
-| `f`  | `fee`              | 
-| `oi` | `order id`         | in trade |
-| `ti` | `trade id`         | 
-| `ci` | `client oid`       | 
-| `gi` | `group id`         | 
-| `tr` | `trend`            | 
-| `co` | `code`             |
-| `_q` |                    |
-| `_t` |                    |
+| abbr  | meaning            | comment             |
+|-------|--------------------| ------------------- |
+| `e`   | `event`            | 
+| `E`   | `errors`           | 
+| `c`   | `channel`          | 
+| `i`   | `id`               | 
+| `s`   | `subscription`     | 
+| `T`   | `at`               | // or `created_at` |
+| `TU`  | `updated_at`       |
+| `ST`  | `startTime`        | 
+| `ET`  | `endTime`          | 
+| `k`   | `kline`            | 
+| `a`   | `asks`             | 
+| `b`   | `bids`             | 
+| `M`   | `market`           | 
+| `ms`  | `markets`          |
+| `m`   | `maker`            | 
+| `p`   | `price`            | 
+| `v`   | `volume`           | 
+| `O`   | `open`             | 
+| `C`   | `close`            | 
+| `H`   | `high`             | 
+| `L`   | `low`              | 
+| `V`   | `volume in BTC`    |
+| `tk`  | `ticker`           | 
+| `o`   | `orders`           | 
+| `t`   | `trades`           | 
+| `sd`  | `side`             | 
+| `ot`  | `ord_type`         | 
+| `sp`  | `stop_price`       | 
+| `ap`  | `avg_price`        | 
+| `aps` |                    |
+| `ps`  |                    |
+| `tc`  | `trade_count`      | 
+| `B`   | `balances`         | 
+| `rv`  | `remaining_volume` | 
+| `ev`  | `executed_volume`  | or `filled` |
+| `qv`  | `quote_volume`     | quote volume used in kline |
+| `S`   | `state`            | 
+| `R`   | `resolution`       | kline resolution |
+| `cu`  | `currency`         | 
+| `fc`  | `fee currency`     | 
+| `fd`  | `fee discounted`   | fee is discounted or not (e.g. use MAX TOKEN to pay fee) |
+| `av`  | `available`        | 
+| `l`   | `locked`           | 
+| `f`   | `fee`              | 
+| `oi`  | `order id`         | in trade |
+| `ti`  | `trade id`         | 
+| `ci`  | `client oid`       | 
+| `gi`  | `group id`         | 
+| `tr`  | `trend`            | 
+| `co`  | `code`             |
+| `_q`  |                    |
+| `_t`  |                    |
+| `fi`  | `first id`         | in book |
+| `li`  | `last id`          | in book |
+| `v`   | `version`          | in book |
 
 
 ## Error response
