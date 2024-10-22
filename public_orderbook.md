@@ -47,12 +47,14 @@ When you subscribed successful, you will get an order book snapshot response, yo
 ## Maintain your own order book
 
 1. Subscribe to the WebSocket channel.
-2. Upon receiving an snapshot event, create an order book locally, and recorded the last id (`li`) and version (`v`) on the local side. If there’s already an order book locally, the newly received one completely replaces the original.
-3. Upon receiving an update event, first verify if its `v` is the same. If it's different, go back to step 2.
-4. Upon receiving an update event, if `fi` <= local `li`, discard it.
-5. The first update event to be processed must satisfy `fi` <= (local `li` + 1) <= `li`; otherwise, go back to step 1 to resubscribe.
+2. Buffer the events you receive from the WebSocket.
+3. Upon receiving an snapshot event, create an order book locally, and recorded the last id (`li`) and version (`v`) on the local side. If there’s already an order book locally, the newly received one completely replaces the original.
+4. Apply the event (buffer and update) to the local order book.
+5. First verify if its `v` is the same. If it's different, go back to step 1 to resubscribe.
+6. Drop any event where `fi` <= local `li`.
+7. The first update event to be processed must satisfy `fi` <= (local `li` + 1) <= `li`; otherwise, go back to step 1 to resubscribe.
 
 Notes:
 - If the volume is equal to 0, remove that price level.
-- If you receive a snapshot event during the subscription process, please go back to step 2 to rebuild your local order book.
+- If you receive a snapshot event during the subscription process, please go back to step 3 to rebuild your local order book.
 - It is normal to receive events indicating the removal of price levels that are not present in your local order book.
