@@ -1,3 +1,8 @@
+## 25.12.0 (2024-10-22)
+
+### New Features
+* The order book supports using the version, first and last ID to verify data continuity.
+
 ## 6.66.0 (2024-05-13)
 
 ### New Features
