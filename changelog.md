@@ -1,3 +1,11 @@
+## 25.14.0 (2024-11-04)
+
+### New Features
+#### Websocket IP Rate Limit
+- Receiving a 429 response will result in an automatic IP ban; it is your responsibility to refrain from spamming.
+- A `Retry-After` header is included in 429 responses, indicating the Unix timestamp in seconds for when you can reconnect.
+- Rate limit violations will result in a penalty. You must wait for the full period of the penalty before making any subsequent requests. Otherwise, the penalty time will be reset and the period of being banned will be prolonged.
+
 ## 25.12.0 (2024-10-22)
 
 ### New Features
