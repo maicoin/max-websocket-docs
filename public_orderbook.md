@@ -58,3 +58,6 @@ Notes:
 - If the volume is equal to 0, remove that price level.
 - If you receive a snapshot event during the subscription process, please go back to step 3 to rebuild your local order book.
 - It is normal to receive events indicating the removal of price levels that are not present in your local order book.
+
+REMARKS:
+When receiving an empty snapshot (e.q. empty `a` and `b`), please clear the local order book to avoid using old data and wait for subsequent snapshot.
