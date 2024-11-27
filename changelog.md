@@ -1,3 +1,6 @@
+## 25.24.0 (2024-11-27)
+- Support the trade_fast filter for private channel.
+
 ## 25.14.0 (2024-11-04)
 
 ### New Features
