@@ -165,14 +165,14 @@ This channel is created to assist you in monitoring your trades. When you authen
 
 ## Trade fast response
 
-This is similar to the trade_update channel, but it excludes the fee field, making it faster.
+This is similar to the trade_update channel, but it excludes the `fee` related fields, making it faster.
 
 ### Field
 
 | Abbr            | Type                      | Description                                          |
 | --------------- | --------------------------| -----------------------------------------------------|
 | `c`             | string                    | channel
-| `e`             | string                    | event (`trade_snapshot` or `trade_update`)
+| `e`             | string                    | event (`trade_fast_update`)
 | `t`             | array of trades           | trades
 | (under the `t`) | ---                       | ---  
 | `i`             | int                       | id
@@ -191,7 +191,7 @@ This is similar to the trade_update channel, but it excludes the fee field, maki
 ```json
 {
   "c": "user",
-  "e": "trade_update",
+  "e": "trade_fast_update",
   "t": [{
     "i": 68444,
     "M": "ethtwd",
