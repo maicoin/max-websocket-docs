@@ -162,6 +162,52 @@ This channel is created to assist you in monitoring your trades. When you authen
 }
 ```
 
+
+## Trade fast response
+
+This is similar to the trade_update channel, but it excludes the fee field, making it faster.
+
+### Field
+
+| Abbr            | Type                      | Description                                          |
+| --------------- | --------------------------| -----------------------------------------------------|
+| `c`             | string                    | channel
+| `e`             | string                    | event (`trade_snapshot` or `trade_update`)
+| `t`             | array of trades           | trades
+| (under the `t`) | ---                       | ---  
+| `i`             | int                       | id
+| `M`             | string                    | market
+| `sd`            | string                    | side (`bid` or `ask`)
+| `p`             | string of float           | price
+| `v`             | string of float           | volume
+| `fn` .          | string                    | funds, the quote balance used in this trade.
+| `T`             | int                       | trade created time, unix timestamp in millisecond
+| `TU`            | int                       | trade updated time, unix timestamp in millisecond
+| `m`             | bool                      | maker
+| `oi`            | int                       | order id
+
+### Update
+
+```json
+{
+  "c": "user",
+  "e": "trade_update",
+  "t": [{
+    "i": 68444,
+    "M": "ethtwd",
+    "sd": "bid",
+    "p": "21499.0",
+    "v": "0.2658",
+    "fn": "5714.4342",
+    "T": 1659216053748,
+    "TU": 1659216054046,
+    "m": true,
+    "oi": 3253823664
+  }],
+  "T": 1521726960357
+}
+```
+
 ## Account response
 
 This channel provides you with information regarding your account balances. When you authenticate with the `account` filter specified, we will initially provide you with a snapshot message that includes all currencies in your wallet. Subsequently, if there is any change in the balance of any currency, we will send you an update message.
