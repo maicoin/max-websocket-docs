@@ -4,7 +4,7 @@ Please see [Authentication](authentication.md) first.
 
 If you want to subscribe MWallet related websocket channels, please specify following filters explicitly when you authenticate the websocket.
 
-Currently supported filters: `mwallet_order`, `mwallet_trade`, `mwallet_account`, `ad_ratio` and `borrowing`.
+Currently supported filters: `mwallet_order`, `mwallet_trade`, `mwallet_fast_trade_update`, `mwallet_account`, `ad_ratio` and `borrowing`.
 
 ## MWallet order response
 
@@ -110,6 +110,7 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
 | `v`             | string of float           | volume
 | `f`             | string of float           | fee
 | `fc`            | string                    | fee currency
+| `fn` .          | string                    | funds, the quote balance used in this trade.
 | `T`             | int                       | trade created time, unix timestamp in millisecond
 | `TU`            | int                       | trade updated time, unix timestamp in millisecond
 | `m`             | bool                      | maker
@@ -128,6 +129,7 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
     "v": "0.1",
     "f": "0.00015",
     "fc": "eth",
+    "fn":"77.38889",
     "T": 1633415966000,
     "TU": 1633415966001,
     "m": false, // maker
@@ -150,6 +152,53 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
     "v": "0.1",
     "f": "0.00015",
     "fc": "eth",
+    "fn":"77.38889",
+    "T": 1633359451377,
+    "TU": 1633359451378,
+    "m": false, // maker
+    "oi": 123
+  }],
+  "T": 1521726960357
+}
+```
+
+
+## MWallet fast trade response
+
+This is similar to the mwallet_trade_update channel, but it excludes the `fee` related fields and without snapshot, making it faster.
+
+### Field
+
+| Abbr            | Type                      | Description                                          |
+| --------------- | --------------------------| -----------------------------------------------------|
+| `c`             | string                    | channel
+| `e`             | string                    | event (`mwallet_fast_trade_update`)
+| `t`             | array of trades           | trades
+| (under the `t`) | ---                       | ---  
+| `i`             | int                       | id
+| `M`             | string                    | market
+| `sd`            | string                    | side (`bid` or `ask`)
+| `p`             | string of float           | price
+| `v`             | string of float           | volume
+| `fn` .          | string                    | funds, the quote balance used in this trade.
+| `T`             | int                       | trade created time, unix timestamp in millisecond
+| `TU`            | int                       | trade updated time, unix timestamp in millisecond
+| `m`             | bool                      | maker
+| `oi`            | int                       | order id
+
+
+### Update
+```json
+{
+  "c": "user",
+  "e": "mwallet_fast_trade_update",
+  "t": [{
+    "i": 78, // trade id
+    "M": "ethusdt",
+    "sd": "bid",
+    "p": "3320.49",
+    "v": "0.1",
+    "fn":"77.38889",
     "T": 1633359451377,
     "TU": 1633359451378,
     "m": false, // maker

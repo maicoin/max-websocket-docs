@@ -31,7 +31,7 @@ const signature = hmac.update(""+nonce).digest("hex");
 
 ## Subscription with filters
 
-To receive specific user private channels, you can use the `filters` parameter to indicate the channels you want to listen to. We support four types of filters: `order`, `trade`, `account`, `trade_update`, and `trade_fast_update`. If you don't want to receive a snapshot of your trades, please use `trade_update` instead of trade.
+To receive specific user private channels, you can use the `filters` parameter to indicate the channels you want to listen to. We support four types of filters: `order`, `trade`, `account`, `trade_update`, and `fast_trade_update`. If you don't want to receive a snapshot of your trades, please use `trade_update` instead of trade.
 
 If you don't specify any filter (i.e., the `filters` is empty), we will use `order`, `trade`, and `account` by default.
 
