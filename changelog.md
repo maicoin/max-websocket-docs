@@ -1,3 +1,6 @@
+## 25.25.0 (2024-12-02)
+- Support the mwallet_fast_trade_update filter for private channel.
+
 ## 25.24.0 (2024-11-27)
 - Support the fast_trade_update filter for private channel.
 
