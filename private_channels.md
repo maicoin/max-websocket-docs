@@ -163,7 +163,7 @@ This channel is created to assist you in monitoring your trades. When you authen
 ```
 
 
-## Trade fast response
+## Fast trade response
 
 This is similar to the trade_update channel, but it excludes the `fee` related fields, making it faster.
 
@@ -172,7 +172,7 @@ This is similar to the trade_update channel, but it excludes the `fee` related f
 | Abbr            | Type                      | Description                                          |
 | --------------- | --------------------------| -----------------------------------------------------|
 | `c`             | string                    | channel
-| `e`             | string                    | event (`trade_fast_update`)
+| `e`             | string                    | event (`fast_trade_update`)
 | `t`             | array of trades           | trades
 | (under the `t`) | ---                       | ---  
 | `i`             | int                       | id
@@ -191,7 +191,7 @@ This is similar to the trade_update channel, but it excludes the `fee` related f
 ```json
 {
   "c": "user",
-  "e": "trade_fast_update",
+  "e": "fast_trade_update",
   "t": [{
     "i": 68444,
     "M": "ethtwd",
