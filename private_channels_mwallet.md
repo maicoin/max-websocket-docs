@@ -110,6 +110,7 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
 | `v`             | string of float           | volume
 | `f`             | string of float           | fee
 | `fc`            | string                    | fee currency
+| `fn` .          | string                    | funds, the quote balance used in this trade.
 | `T`             | int                       | trade created time, unix timestamp in millisecond
 | `TU`            | int                       | trade updated time, unix timestamp in millisecond
 | `m`             | bool                      | maker
@@ -128,6 +129,7 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
     "v": "0.1",
     "f": "0.00015",
     "fc": "eth",
+    "fn":"77.38889",
     "T": 1633415966000,
     "TU": 1633415966001,
     "m": false, // maker
