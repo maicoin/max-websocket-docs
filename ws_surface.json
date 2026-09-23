@@ -1,0 +1,861 @@
+{
+  "version": 1,
+  "channels": [
+    {
+      "name": "book",
+      "status": "released"
+    },
+    {
+      "name": "kline",
+      "status": "released"
+    },
+    {
+      "name": "market_status",
+      "status": "released"
+    },
+    {
+      "name": "pool_quota",
+      "status": "released"
+    },
+    {
+      "name": "ticker",
+      "status": "released"
+    },
+    {
+      "name": "trade",
+      "status": "released"
+    },
+    {
+      "name": "user",
+      "status": "released"
+    }
+  ],
+  "actions": [
+    {
+      "name": "authenticate",
+      "aliases": [
+        "auth"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "ping",
+      "status": "released"
+    },
+    {
+      "name": "subscribe",
+      "aliases": [
+        "sub"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "unsubscribe",
+      "aliases": [
+        "unsub"
+      ],
+      "status": "released"
+    }
+  ],
+  "command_events": [
+    {
+      "name": "authenticated",
+      "status": "released"
+    },
+    {
+      "name": "pong",
+      "status": "released"
+    },
+    {
+      "name": "subscribed",
+      "status": "released"
+    },
+    {
+      "name": "unsubscribed",
+      "status": "released"
+    }
+  ],
+  "messages": [
+    {
+      "id": "book.snapshot",
+      "channel": "book",
+      "event": "snapshot",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "a": "array",
+        "a[][]": "string",
+        "b": "array",
+        "b[][]": "string",
+        "c": "string",
+        "e": "string",
+        "fi": "number",
+        "li": "number",
+        "v": "number"
+      },
+      "status": "released"
+    },
+    {
+      "id": "book.update",
+      "channel": "book",
+      "event": "update",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "a[][]": "string",
+        "b": "array",
+        "c": "string",
+        "e": "string",
+        "fi": "number",
+        "li": "number",
+        "v": "number"
+      },
+      "status": "released"
+    },
+    {
+      "id": "kline.snapshot",
+      "channel": "kline",
+      "event": "snapshot",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "k": "object",
+        "k.C": "string",
+        "k.ET": "number",
+        "k.H": "string",
+        "k.L": "string",
+        "k.M": "string",
+        "k.O": "string",
+        "k.R": "string",
+        "k.ST": "number",
+        "k.qv": "string",
+        "k.ti": "number",
+        "k.v": "string",
+        "k.x": "bool"
+      },
+      "status": "released"
+    },
+    {
+      "id": "kline.update",
+      "channel": "kline",
+      "event": "update",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "k": "object",
+        "k.C": "string",
+        "k.ET": "number",
+        "k.H": "string",
+        "k.L": "string",
+        "k.M": "string",
+        "k.O": "string",
+        "k.R": "string",
+        "k.ST": "number",
+        "k.qv": "string",
+        "k.ti": "number",
+        "k.v": "string",
+        "k.x": "bool"
+      },
+      "status": "released"
+    },
+    {
+      "id": "market_status.snapshot",
+      "channel": "market_status",
+      "event": "snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "ms[]": "object",
+        "ms[].M": "string",
+        "ms[].bu": "string",
+        "ms[].bup": "number",
+        "ms[].ds": "bool",
+        "ms[].gs": "bool",
+        "ms[].gsm": "string",
+        "ms[].mba": "number",
+        "ms[].mqa": "number",
+        "ms[].mws": "bool",
+        "ms[].qu": "string",
+        "ms[].qup": "number",
+        "ms[].st": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "market_status.update",
+      "channel": "market_status",
+      "event": "update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "ms[]": "object",
+        "ms[].M": "string",
+        "ms[].bu": "string",
+        "ms[].bup": "number",
+        "ms[].ds": "bool",
+        "ms[].gs": "bool",
+        "ms[].gsm": "string",
+        "ms[].mba": "number",
+        "ms[].mqa": "number",
+        "ms[].mws": "bool",
+        "ms[].qu": "string",
+        "ms[].qup": "number",
+        "ms[].st": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "pool_quota.snapshot",
+      "channel": "pool_quota",
+      "event": "snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "qta": "object",
+        "qta.TU": "number",
+        "qta.av": "string",
+        "qta.cu": "string",
+        "qta.sa": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "pool_quota.update",
+      "channel": "pool_quota",
+      "event": "update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "qta": "object",
+        "qta.TU": "number",
+        "qta.av": "string",
+        "qta.cu": "string",
+        "qta.sa": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "ticker.snapshot",
+      "channel": "ticker",
+      "event": "snapshot",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "tk": "object",
+        "tk.C": "string",
+        "tk.H": "string",
+        "tk.L": "string",
+        "tk.M": "string",
+        "tk.O": "string",
+        "tk.V": "string",
+        "tk.v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "ticker.update",
+      "channel": "ticker",
+      "event": "update",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "tk": "object",
+        "tk.C": "string",
+        "tk.H": "string",
+        "tk.L": "string",
+        "tk.M": "string",
+        "tk.O": "string",
+        "tk.V": "string",
+        "tk.v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "trade.snapshot",
+      "channel": "trade",
+      "event": "snapshot",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t": "array",
+        "t[]": "object",
+        "t[].T": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].tr": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "trade.update",
+      "channel": "trade",
+      "event": "update",
+      "fields": {
+        "M": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].T": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].tr": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.account_snapshot",
+      "channel": "user",
+      "event": "account_snapshot",
+      "fields": {
+        "B[]": "object",
+        "B[].TU": "number",
+        "B[].av": "string",
+        "B[].cu": "string",
+        "B[].l": "string",
+        "B[].sa": "string",
+        "B[].stk": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.account_update",
+      "channel": "user",
+      "event": "account_update",
+      "fields": {
+        "B[]": "object",
+        "B[].TU": "number",
+        "B[].av": "string",
+        "B[].cu": "string",
+        "B[].l": "string",
+        "B[].sa": "string",
+        "B[].stk": "null",
+        "T": "number",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.ad_ratio_snapshot",
+      "channel": "user",
+      "event": "ad_ratio_snapshot",
+      "fields": {
+        "T": "number",
+        "ad": "object",
+        "ad.TU": "number",
+        "ad.ad": "string",
+        "ad.as": "string",
+        "ad.db": "string",
+        "ad.idxp[]": "object",
+        "ad.idxp[].M": "string",
+        "ad.idxp[].p": "string",
+        "ad.sa": "string",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.ad_ratio_update",
+      "channel": "user",
+      "event": "ad_ratio_update",
+      "fields": {
+        "T": "number",
+        "ad": "object",
+        "ad.TU": "number",
+        "ad.ad": "string",
+        "ad.as": "string",
+        "ad.db": "string",
+        "ad.idxp[]": "object",
+        "ad.idxp[].M": "string",
+        "ad.idxp[].p": "string",
+        "ad.sa": "string",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.borrowing_snapshot",
+      "channel": "user",
+      "event": "borrowing_snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "db[]": "object",
+        "db[].TU": "number",
+        "db[].cu": "string",
+        "db[].dbi": "string",
+        "db[].dbp": "string",
+        "db[].sa": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.borrowing_update",
+      "channel": "user",
+      "event": "borrowing_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "db[]": "object",
+        "db[].TU": "number",
+        "db[].cu": "string",
+        "db[].dbi": "string",
+        "db[].dbp": "string",
+        "db[].sa": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.fast_trade_update",
+      "channel": "user",
+      "event": "fast_trade_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_account_snapshot",
+      "channel": "user",
+      "event": "mwallet_account_snapshot",
+      "fields": {
+        "B[]": "object",
+        "B[].TU": "number",
+        "B[].av": "string",
+        "B[].cu": "string",
+        "B[].l": "string",
+        "B[].sa": "string",
+        "B[].stk": "string",
+        "T": "number",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_account_update",
+      "channel": "user",
+      "event": "mwallet_account_update",
+      "fields": {
+        "B[]": "object",
+        "B[].TU": "number",
+        "B[].av": "string",
+        "B[].cu": "string",
+        "B[].l": "string",
+        "B[].sa": "string",
+        "B[].stk": "null",
+        "T": "number",
+        "c": "string",
+        "e": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_fast_trade_update",
+      "channel": "user",
+      "event": "mwallet_fast_trade_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_order_snapshot",
+      "channel": "user",
+      "event": "mwallet_order_snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "o[]": "object",
+        "o[].M": "string",
+        "o[].S": "string",
+        "o[].T": "number",
+        "o[].TU": "number",
+        "o[].ap": "string",
+        "o[].ci": "string",
+        "o[].ev": "string",
+        "o[].gi": "number",
+        "o[].i": "number",
+        "o[].ot": "string",
+        "o[].p": "string",
+        "o[].rv": "string",
+        "o[].sa": "string",
+        "o[].sd": "string",
+        "o[].sp": "string",
+        "o[].tc": "number",
+        "o[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_order_update",
+      "channel": "user",
+      "event": "mwallet_order_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "o[]": "object",
+        "o[].M": "string",
+        "o[].S": "string",
+        "o[].T": "number",
+        "o[].TU": "number",
+        "o[].ap": "string",
+        "o[].ci": "null",
+        "o[].ev": "string",
+        "o[].gi": "null",
+        "o[].i": "number",
+        "o[].ot": "string",
+        "o[].p": "string",
+        "o[].rv": "string",
+        "o[].sa": "string",
+        "o[].sd": "string",
+        "o[].sp": "null",
+        "o[].tc": "number",
+        "o[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_trade_snapshot",
+      "channel": "user",
+      "event": "mwallet_trade_snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].f": "string",
+        "t[].fc": "string",
+        "t[].fd": "bool",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_trade_update",
+      "channel": "user",
+      "event": "mwallet_trade_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].f": "string",
+        "t[].fc": "string",
+        "t[].fd": "bool",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.order_snapshot",
+      "channel": "user",
+      "event": "order_snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "o[]": "object",
+        "o[].M": "string",
+        "o[].S": "string",
+        "o[].T": "number",
+        "o[].TU": "number",
+        "o[].ap": "string",
+        "o[].ci": "string",
+        "o[].ev": "string",
+        "o[].gi": "number",
+        "o[].i": "number",
+        "o[].ot": "string",
+        "o[].p": "string",
+        "o[].rv": "string",
+        "o[].sa": "string",
+        "o[].sd": "string",
+        "o[].sp": "string",
+        "o[].tc": "number",
+        "o[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.order_update",
+      "channel": "user",
+      "event": "order_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "o[]": "object",
+        "o[].M": "string",
+        "o[].S": "string",
+        "o[].T": "number",
+        "o[].TU": "number",
+        "o[].ap": "string",
+        "o[].ci": "null",
+        "o[].ev": "string",
+        "o[].gi": "null",
+        "o[].i": "number",
+        "o[].ot": "string",
+        "o[].p": "string",
+        "o[].rv": "string",
+        "o[].sa": "string",
+        "o[].sd": "string",
+        "o[].sp": "null",
+        "o[].tc": "number",
+        "o[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.trade_snapshot",
+      "channel": "user",
+      "event": "trade_snapshot",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].f": "string",
+        "t[].fc": "string",
+        "t[].fd": "bool",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    },
+    {
+      "id": "user.trade_update",
+      "channel": "user",
+      "event": "trade_update",
+      "fields": {
+        "T": "number",
+        "c": "string",
+        "e": "string",
+        "t[]": "object",
+        "t[].M": "string",
+        "t[].T": "number",
+        "t[].TU": "number",
+        "t[].f": "string",
+        "t[].fc": "string",
+        "t[].fd": "bool",
+        "t[].fn": "string",
+        "t[].i": "number",
+        "t[].m": "bool",
+        "t[].oi": "number",
+        "t[].p": "string",
+        "t[].rpi": "bool",
+        "t[].sa": "string",
+        "t[].sd": "string",
+        "t[].v": "string"
+      },
+      "status": "released"
+    }
+  ],
+  "filters": [
+    {
+      "name": "account",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "account_snapshot",
+        "account_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "ad_ratio",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "ad_ratio_snapshot",
+        "ad_ratio_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "borrowing",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "borrowing_snapshot",
+        "borrowing_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "fast_trade_update",
+      "audiences": [
+        "api"
+      ],
+      "emits": [
+        "fast_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_account",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_account_snapshot",
+        "mwallet_account_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_fast_trade_update",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_fast_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_order",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_order_snapshot",
+        "mwallet_order_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_trade",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_trade_snapshot",
+        "mwallet_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "order",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "order_snapshot",
+        "order_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "trade",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "trade_snapshot",
+        "trade_update"
+      ],
+      "status": "released"
+    }
+  ],
+  "missing_samples": null
+}
