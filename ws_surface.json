@@ -1,0 +1,2680 @@
+{
+  "version": 3,
+  "channels": [
+    {
+      "name": "book",
+      "status": "released"
+    },
+    {
+      "name": "kline",
+      "status": "released"
+    },
+    {
+      "name": "market_status",
+      "status": "released"
+    },
+    {
+      "name": "pool_quota",
+      "status": "released"
+    },
+    {
+      "name": "ticker",
+      "status": "released"
+    },
+    {
+      "name": "trade",
+      "status": "released"
+    },
+    {
+      "name": "user",
+      "status": "released"
+    }
+  ],
+  "actions": [
+    {
+      "name": "authenticate",
+      "aliases": [
+        "auth"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "ping",
+      "status": "released"
+    },
+    {
+      "name": "subscribe",
+      "aliases": [
+        "sub"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "unsubscribe",
+      "aliases": [
+        "unsub"
+      ],
+      "status": "released"
+    }
+  ],
+  "command_events": [
+    {
+      "name": "authenticated",
+      "status": "released"
+    },
+    {
+      "name": "pong",
+      "status": "released"
+    },
+    {
+      "name": "subscribed",
+      "status": "released"
+    },
+    {
+      "name": "unsubscribed",
+      "status": "released"
+    }
+  ],
+  "messages": [
+    {
+      "id": "book.snapshot",
+      "channel": "book",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "a",
+          "type": "array",
+          "description": "ask price levels"
+        },
+        {
+          "path": "a[]",
+          "type": "array",
+          "description": "one ask level: [price, volume]"
+        },
+        {
+          "path": "a[][]",
+          "type": "string",
+          "description": "price or volume, decimal string; a volume of 0 removes the level"
+        },
+        {
+          "path": "b",
+          "type": "array",
+          "description": "bid price levels"
+        },
+        {
+          "path": "b[]",
+          "type": "array",
+          "description": "one bid level: [price, volume]"
+        },
+        {
+          "path": "b[][]",
+          "type": "string",
+          "description": "price or volume, decimal string; a volume of 0 removes the level"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        },
+        {
+          "path": "fi",
+          "type": "number",
+          "description": "first update id in this event"
+        },
+        {
+          "path": "li",
+          "type": "number",
+          "description": "last update id in this event"
+        },
+        {
+          "path": "v",
+          "type": "number",
+          "description": "order book version; resubscribe when it differs from the version of your local book"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "book.update",
+      "channel": "book",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "a",
+          "type": "array",
+          "description": "ask price levels"
+        },
+        {
+          "path": "a[]",
+          "type": "array",
+          "description": "one ask level: [price, volume]"
+        },
+        {
+          "path": "a[][]",
+          "type": "string",
+          "description": "price or volume, decimal string; a volume of 0 removes the level"
+        },
+        {
+          "path": "b",
+          "type": "array",
+          "description": "bid price levels"
+        },
+        {
+          "path": "b[]",
+          "type": "array",
+          "description": "one bid level: [price, volume]"
+        },
+        {
+          "path": "b[][]",
+          "type": "string",
+          "description": "price or volume, decimal string; a volume of 0 removes the level"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        },
+        {
+          "path": "fi",
+          "type": "number",
+          "description": "first update id in this event"
+        },
+        {
+          "path": "li",
+          "type": "number",
+          "description": "last update id in this event"
+        },
+        {
+          "path": "v",
+          "type": "number",
+          "description": "order book version; resubscribe when it differs from the version of your local book"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "kline.snapshot",
+      "channel": "kline",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k",
+          "type": "object",
+          "description": "kline"
+        },
+        {
+          "path": "k.ST",
+          "type": "number",
+          "description": "start time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k.ET",
+          "type": "number",
+          "description": "end time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k.M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "k.R",
+          "type": "string",
+          "description": "resolution, such as `1m` or `1h`"
+        },
+        {
+          "path": "k.O",
+          "type": "string",
+          "description": "open price, decimal string"
+        },
+        {
+          "path": "k.H",
+          "type": "string",
+          "description": "high price, decimal string"
+        },
+        {
+          "path": "k.L",
+          "type": "string",
+          "description": "low price, decimal string"
+        },
+        {
+          "path": "k.C",
+          "type": "string",
+          "description": "close price, decimal string"
+        },
+        {
+          "path": "k.v",
+          "type": "string",
+          "description": "volume in the base currency, decimal string"
+        },
+        {
+          "path": "k.qv",
+          "type": "string",
+          "description": "volume in the quote currency, decimal string"
+        },
+        {
+          "path": "k.ti",
+          "type": "number",
+          "description": "id of the last trade in the kline"
+        },
+        {
+          "path": "k.x",
+          "type": "bool",
+          "description": "whether the kline is closed"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "kline.update",
+      "channel": "kline",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k",
+          "type": "object",
+          "description": "kline"
+        },
+        {
+          "path": "k.ST",
+          "type": "number",
+          "description": "start time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k.ET",
+          "type": "number",
+          "description": "end time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "k.M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "k.R",
+          "type": "string",
+          "description": "resolution, such as `1m` or `1h`"
+        },
+        {
+          "path": "k.O",
+          "type": "string",
+          "description": "open price, decimal string"
+        },
+        {
+          "path": "k.H",
+          "type": "string",
+          "description": "high price, decimal string"
+        },
+        {
+          "path": "k.L",
+          "type": "string",
+          "description": "low price, decimal string"
+        },
+        {
+          "path": "k.C",
+          "type": "string",
+          "description": "close price, decimal string"
+        },
+        {
+          "path": "k.v",
+          "type": "string",
+          "description": "volume in the base currency, decimal string"
+        },
+        {
+          "path": "k.qv",
+          "type": "string",
+          "description": "volume in the quote currency, decimal string"
+        },
+        {
+          "path": "k.ti",
+          "type": "number",
+          "description": "id of the last trade in the kline"
+        },
+        {
+          "path": "k.x",
+          "type": "bool",
+          "description": "whether the kline is closed"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "market_status.snapshot",
+      "channel": "market_status",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "ms",
+          "type": "array",
+          "description": "market statuses"
+        },
+        {
+          "path": "ms[]",
+          "type": "object",
+          "description": "status of one market"
+        },
+        {
+          "path": "ms[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "ms[].st",
+          "type": "string",
+          "description": "status, `active`, `suspended` or `cancel-only`"
+        },
+        {
+          "path": "ms[].bu",
+          "type": "string",
+          "description": "base currency"
+        },
+        {
+          "path": "ms[].bup",
+          "type": "number",
+          "description": "base currency precision"
+        },
+        {
+          "path": "ms[].mba",
+          "type": "number",
+          "description": "minimum base amount of an order"
+        },
+        {
+          "path": "ms[].qu",
+          "type": "string",
+          "description": "quote currency"
+        },
+        {
+          "path": "ms[].qup",
+          "type": "number",
+          "description": "quote currency precision"
+        },
+        {
+          "path": "ms[].mqa",
+          "type": "number",
+          "description": "minimum quote amount of an order"
+        },
+        {
+          "path": "ms[].mws",
+          "type": "bool",
+          "description": "whether the market supports m-wallet"
+        },
+        {
+          "path": "ms[].gs",
+          "type": "bool",
+          "description": "whether the market supports grid trading"
+        },
+        {
+          "path": "ms[].gsm",
+          "type": "string",
+          "description": "comma-separated grid investment modes the market supports, such as `quote-only,base+quote`; empty when grid trading is not supported"
+        },
+        {
+          "path": "ms[].ds",
+          "type": "bool",
+          "description": "whether the market supports DCA"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "market_status.update",
+      "channel": "market_status",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "ms",
+          "type": "array",
+          "description": "market statuses"
+        },
+        {
+          "path": "ms[]",
+          "type": "object",
+          "description": "status of one market"
+        },
+        {
+          "path": "ms[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "ms[].st",
+          "type": "string",
+          "description": "status, `active`, `suspended` or `cancel-only`"
+        },
+        {
+          "path": "ms[].bu",
+          "type": "string",
+          "description": "base currency"
+        },
+        {
+          "path": "ms[].bup",
+          "type": "number",
+          "description": "base currency precision"
+        },
+        {
+          "path": "ms[].mba",
+          "type": "number",
+          "description": "minimum base amount of an order"
+        },
+        {
+          "path": "ms[].qu",
+          "type": "string",
+          "description": "quote currency"
+        },
+        {
+          "path": "ms[].qup",
+          "type": "number",
+          "description": "quote currency precision"
+        },
+        {
+          "path": "ms[].mqa",
+          "type": "number",
+          "description": "minimum quote amount of an order"
+        },
+        {
+          "path": "ms[].mws",
+          "type": "bool",
+          "description": "whether the market supports m-wallet"
+        },
+        {
+          "path": "ms[].gs",
+          "type": "bool",
+          "description": "whether the market supports grid trading"
+        },
+        {
+          "path": "ms[].gsm",
+          "type": "string",
+          "description": "comma-separated grid investment modes the market supports, such as `quote-only,base+quote`; empty when grid trading is not supported"
+        },
+        {
+          "path": "ms[].ds",
+          "type": "bool",
+          "description": "whether the market supports DCA"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "pool_quota.snapshot",
+      "channel": "pool_quota",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "qta",
+          "type": "object",
+          "description": "pool quota"
+        },
+        {
+          "path": "qta.sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "qta.cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "qta.av",
+          "type": "string",
+          "description": "available loan quota, decimal string"
+        },
+        {
+          "path": "qta.TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "pool_quota.update",
+      "channel": "pool_quota",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "qta",
+          "type": "object",
+          "description": "pool quota"
+        },
+        {
+          "path": "qta.sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "qta.cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "qta.av",
+          "type": "string",
+          "description": "available loan quota, decimal string"
+        },
+        {
+          "path": "qta.TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "ticker.snapshot",
+      "channel": "ticker",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "tk",
+          "type": "object",
+          "description": "ticker"
+        },
+        {
+          "path": "tk.M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "tk.O",
+          "type": "string",
+          "description": "open price, decimal string"
+        },
+        {
+          "path": "tk.H",
+          "type": "string",
+          "description": "high price, decimal string"
+        },
+        {
+          "path": "tk.L",
+          "type": "string",
+          "description": "low price, decimal string"
+        },
+        {
+          "path": "tk.C",
+          "type": "string",
+          "description": "close price, decimal string"
+        },
+        {
+          "path": "tk.v",
+          "type": "string",
+          "description": "volume in the base currency, decimal string"
+        },
+        {
+          "path": "tk.V",
+          "type": "string",
+          "description": "volume converted to BTC, decimal string"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "ticker.update",
+      "channel": "ticker",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "tk",
+          "type": "object",
+          "description": "ticker"
+        },
+        {
+          "path": "tk.M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "tk.O",
+          "type": "string",
+          "description": "open price, decimal string"
+        },
+        {
+          "path": "tk.H",
+          "type": "string",
+          "description": "high price, decimal string"
+        },
+        {
+          "path": "tk.L",
+          "type": "string",
+          "description": "low price, decimal string"
+        },
+        {
+          "path": "tk.C",
+          "type": "string",
+          "description": "close price, decimal string"
+        },
+        {
+          "path": "tk.v",
+          "type": "string",
+          "description": "volume in the base currency, decimal string"
+        },
+        {
+          "path": "tk.V",
+          "type": "string",
+          "description": "volume converted to BTC, decimal string"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "trade.snapshot",
+      "channel": "trade",
+      "event": "snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "trade time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].tr",
+          "type": "string",
+          "description": "trend, `up` or `down`"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "trade.update",
+      "channel": "trade",
+      "event": "update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "trade time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].tr",
+          "type": "string",
+          "description": "trend, `up` or `down`"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.account_snapshot",
+      "channel": "user",
+      "event": "account_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "B",
+          "type": "array",
+          "description": "balances"
+        },
+        {
+          "path": "B[]",
+          "type": "object",
+          "description": "balance of one currency"
+        },
+        {
+          "path": "B[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "B[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "B[].av",
+          "type": "string",
+          "description": "available balance, decimal string"
+        },
+        {
+          "path": "B[].l",
+          "type": "string",
+          "description": "locked balance, decimal string"
+        },
+        {
+          "path": "B[].stk",
+          "type": "string",
+          "description": "staked balance, decimal string; may be null"
+        },
+        {
+          "path": "B[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.account_update",
+      "channel": "user",
+      "event": "account_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "B",
+          "type": "array",
+          "description": "balances"
+        },
+        {
+          "path": "B[]",
+          "type": "object",
+          "description": "balance of one currency"
+        },
+        {
+          "path": "B[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "B[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "B[].av",
+          "type": "string",
+          "description": "available balance, decimal string"
+        },
+        {
+          "path": "B[].l",
+          "type": "string",
+          "description": "locked balance, decimal string"
+        },
+        {
+          "path": "B[].stk",
+          "type": "null",
+          "description": "staked balance, decimal string; may be null"
+        },
+        {
+          "path": "B[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.ad_ratio_snapshot",
+      "channel": "user",
+      "event": "ad_ratio_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "ad",
+          "type": "object",
+          "description": "AD ratio"
+        },
+        {
+          "path": "ad.sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "ad.ad",
+          "type": "string",
+          "description": "AD ratio, decimal string"
+        },
+        {
+          "path": "ad.as",
+          "type": "string",
+          "description": "assets in USDT, decimal string"
+        },
+        {
+          "path": "ad.db",
+          "type": "string",
+          "description": "debts in USDT, decimal string"
+        },
+        {
+          "path": "ad.idxp",
+          "type": "array",
+          "description": "index prices used for the ratio"
+        },
+        {
+          "path": "ad.idxp[]",
+          "type": "object",
+          "description": "index price of one market"
+        },
+        {
+          "path": "ad.idxp[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "ad.idxp[].p",
+          "type": "string",
+          "description": "index price, decimal string"
+        },
+        {
+          "path": "ad.TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.ad_ratio_update",
+      "channel": "user",
+      "event": "ad_ratio_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "ad",
+          "type": "object",
+          "description": "AD ratio"
+        },
+        {
+          "path": "ad.sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "ad.ad",
+          "type": "string",
+          "description": "AD ratio, decimal string"
+        },
+        {
+          "path": "ad.as",
+          "type": "string",
+          "description": "assets in USDT, decimal string"
+        },
+        {
+          "path": "ad.db",
+          "type": "string",
+          "description": "debts in USDT, decimal string"
+        },
+        {
+          "path": "ad.idxp",
+          "type": "array",
+          "description": "index prices used for the ratio"
+        },
+        {
+          "path": "ad.idxp[]",
+          "type": "object",
+          "description": "index price of one market"
+        },
+        {
+          "path": "ad.idxp[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "ad.idxp[].p",
+          "type": "string",
+          "description": "index price, decimal string"
+        },
+        {
+          "path": "ad.TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.borrowing_snapshot",
+      "channel": "user",
+      "event": "borrowing_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "db",
+          "type": "array",
+          "description": "debts"
+        },
+        {
+          "path": "db[]",
+          "type": "object",
+          "description": "debt of one currency"
+        },
+        {
+          "path": "db[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "db[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "db[].dbp",
+          "type": "string",
+          "description": "debt principal, decimal string"
+        },
+        {
+          "path": "db[].dbi",
+          "type": "string",
+          "description": "debt interest, decimal string"
+        },
+        {
+          "path": "db[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.borrowing_update",
+      "channel": "user",
+      "event": "borrowing_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "db",
+          "type": "array",
+          "description": "debts"
+        },
+        {
+          "path": "db[]",
+          "type": "object",
+          "description": "debt of one currency"
+        },
+        {
+          "path": "db[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "db[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "db[].dbp",
+          "type": "string",
+          "description": "debt principal, decimal string"
+        },
+        {
+          "path": "db[].dbi",
+          "type": "string",
+          "description": "debt interest, decimal string"
+        },
+        {
+          "path": "db[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.fast_trade_update",
+      "channel": "user",
+      "event": "fast_trade_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_account_snapshot",
+      "channel": "user",
+      "event": "mwallet_account_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "B",
+          "type": "array",
+          "description": "balances"
+        },
+        {
+          "path": "B[]",
+          "type": "object",
+          "description": "balance of one currency"
+        },
+        {
+          "path": "B[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "B[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "B[].av",
+          "type": "string",
+          "description": "available balance, decimal string"
+        },
+        {
+          "path": "B[].l",
+          "type": "string",
+          "description": "locked balance, decimal string"
+        },
+        {
+          "path": "B[].stk",
+          "type": "string",
+          "description": "staked balance, decimal string; may be null"
+        },
+        {
+          "path": "B[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_account_update",
+      "channel": "user",
+      "event": "mwallet_account_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "B",
+          "type": "array",
+          "description": "balances"
+        },
+        {
+          "path": "B[]",
+          "type": "object",
+          "description": "balance of one currency"
+        },
+        {
+          "path": "B[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "B[].cu",
+          "type": "string",
+          "description": "currency"
+        },
+        {
+          "path": "B[].av",
+          "type": "string",
+          "description": "available balance, decimal string"
+        },
+        {
+          "path": "B[].l",
+          "type": "string",
+          "description": "locked balance, decimal string"
+        },
+        {
+          "path": "B[].stk",
+          "type": "null",
+          "description": "staked balance, decimal string; may be null"
+        },
+        {
+          "path": "B[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_fast_trade_update",
+      "channel": "user",
+      "event": "mwallet_fast_trade_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_order_snapshot",
+      "channel": "user",
+      "event": "mwallet_order_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "o",
+          "type": "array",
+          "description": "orders"
+        },
+        {
+          "path": "o[]",
+          "type": "object",
+          "description": "one order"
+        },
+        {
+          "path": "o[].i",
+          "type": "number",
+          "description": "order id"
+        },
+        {
+          "path": "o[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "o[].sd",
+          "type": "string",
+          "description": "side, `bid` or `ask`"
+        },
+        {
+          "path": "o[].ot",
+          "type": "string",
+          "description": "order type, such as `limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`"
+        },
+        {
+          "path": "o[].p",
+          "type": "string",
+          "description": "price, decimal string; null when the order has no price, such as a market order"
+        },
+        {
+          "path": "o[].sp",
+          "type": "string",
+          "description": "stop price, decimal string; null unless the order is a stop order"
+        },
+        {
+          "path": "o[].ap",
+          "type": "string",
+          "description": "average filled price, decimal string"
+        },
+        {
+          "path": "o[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "o[].rv",
+          "type": "string",
+          "description": "remaining volume, decimal string"
+        },
+        {
+          "path": "o[].ev",
+          "type": "string",
+          "description": "executed volume, decimal string"
+        },
+        {
+          "path": "o[].S",
+          "type": "string",
+          "description": "state, such as `wait`, `done` or `cancel`"
+        },
+        {
+          "path": "o[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "o[].tc",
+          "type": "number",
+          "description": "number of trades the order has filled"
+        },
+        {
+          "path": "o[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].gi",
+          "type": "number",
+          "description": "group id; null when the order has none"
+        },
+        {
+          "path": "o[].ci",
+          "type": "string",
+          "description": "client order id; null when the order has none"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_order_update",
+      "channel": "user",
+      "event": "mwallet_order_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "o",
+          "type": "array",
+          "description": "orders"
+        },
+        {
+          "path": "o[]",
+          "type": "object",
+          "description": "one order"
+        },
+        {
+          "path": "o[].i",
+          "type": "number",
+          "description": "order id"
+        },
+        {
+          "path": "o[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "o[].sd",
+          "type": "string",
+          "description": "side, `bid` or `ask`"
+        },
+        {
+          "path": "o[].ot",
+          "type": "string",
+          "description": "order type, such as `limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`"
+        },
+        {
+          "path": "o[].p",
+          "type": "string",
+          "description": "price, decimal string; null when the order has no price, such as a market order"
+        },
+        {
+          "path": "o[].sp",
+          "type": "null",
+          "description": "stop price, decimal string; null unless the order is a stop order"
+        },
+        {
+          "path": "o[].ap",
+          "type": "string",
+          "description": "average filled price, decimal string"
+        },
+        {
+          "path": "o[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "o[].rv",
+          "type": "string",
+          "description": "remaining volume, decimal string"
+        },
+        {
+          "path": "o[].ev",
+          "type": "string",
+          "description": "executed volume, decimal string"
+        },
+        {
+          "path": "o[].S",
+          "type": "string",
+          "description": "state, such as `wait`, `done` or `cancel`"
+        },
+        {
+          "path": "o[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "o[].tc",
+          "type": "number",
+          "description": "number of trades the order has filled"
+        },
+        {
+          "path": "o[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].gi",
+          "type": "null",
+          "description": "group id; null when the order has none"
+        },
+        {
+          "path": "o[].ci",
+          "type": "null",
+          "description": "client order id; null when the order has none"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_trade_snapshot",
+      "channel": "user",
+      "event": "mwallet_trade_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].f",
+          "type": "string",
+          "description": "fee, decimal string"
+        },
+        {
+          "path": "t[].fc",
+          "type": "string",
+          "description": "fee currency"
+        },
+        {
+          "path": "t[].fd",
+          "type": "bool",
+          "description": "whether the fee is discounted, for example by paying it in MAX token"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.mwallet_trade_update",
+      "channel": "user",
+      "event": "mwallet_trade_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].f",
+          "type": "string",
+          "description": "fee, decimal string"
+        },
+        {
+          "path": "t[].fc",
+          "type": "string",
+          "description": "fee currency"
+        },
+        {
+          "path": "t[].fd",
+          "type": "bool",
+          "description": "whether the fee is discounted, for example by paying it in MAX token"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.order_snapshot",
+      "channel": "user",
+      "event": "order_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "o",
+          "type": "array",
+          "description": "orders"
+        },
+        {
+          "path": "o[]",
+          "type": "object",
+          "description": "one order"
+        },
+        {
+          "path": "o[].i",
+          "type": "number",
+          "description": "order id"
+        },
+        {
+          "path": "o[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "o[].sd",
+          "type": "string",
+          "description": "side, `bid` or `ask`"
+        },
+        {
+          "path": "o[].ot",
+          "type": "string",
+          "description": "order type, such as `limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`"
+        },
+        {
+          "path": "o[].p",
+          "type": "string",
+          "description": "price, decimal string; null when the order has no price, such as a market order"
+        },
+        {
+          "path": "o[].sp",
+          "type": "string",
+          "description": "stop price, decimal string; null unless the order is a stop order"
+        },
+        {
+          "path": "o[].ap",
+          "type": "string",
+          "description": "average filled price, decimal string"
+        },
+        {
+          "path": "o[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "o[].rv",
+          "type": "string",
+          "description": "remaining volume, decimal string"
+        },
+        {
+          "path": "o[].ev",
+          "type": "string",
+          "description": "executed volume, decimal string"
+        },
+        {
+          "path": "o[].S",
+          "type": "string",
+          "description": "state, such as `wait`, `done` or `cancel`"
+        },
+        {
+          "path": "o[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "o[].tc",
+          "type": "number",
+          "description": "number of trades the order has filled"
+        },
+        {
+          "path": "o[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].gi",
+          "type": "number",
+          "description": "group id; null when the order has none"
+        },
+        {
+          "path": "o[].ci",
+          "type": "string",
+          "description": "client order id; null when the order has none"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.order_update",
+      "channel": "user",
+      "event": "order_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "o",
+          "type": "array",
+          "description": "orders"
+        },
+        {
+          "path": "o[]",
+          "type": "object",
+          "description": "one order"
+        },
+        {
+          "path": "o[].i",
+          "type": "number",
+          "description": "order id"
+        },
+        {
+          "path": "o[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "o[].sd",
+          "type": "string",
+          "description": "side, `bid` or `ask`"
+        },
+        {
+          "path": "o[].ot",
+          "type": "string",
+          "description": "order type, such as `limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`"
+        },
+        {
+          "path": "o[].p",
+          "type": "string",
+          "description": "price, decimal string; null when the order has no price, such as a market order"
+        },
+        {
+          "path": "o[].sp",
+          "type": "null",
+          "description": "stop price, decimal string; null unless the order is a stop order"
+        },
+        {
+          "path": "o[].ap",
+          "type": "string",
+          "description": "average filled price, decimal string"
+        },
+        {
+          "path": "o[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "o[].rv",
+          "type": "string",
+          "description": "remaining volume, decimal string"
+        },
+        {
+          "path": "o[].ev",
+          "type": "string",
+          "description": "executed volume, decimal string"
+        },
+        {
+          "path": "o[].S",
+          "type": "string",
+          "description": "state, such as `wait`, `done` or `cancel`"
+        },
+        {
+          "path": "o[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "o[].tc",
+          "type": "number",
+          "description": "number of trades the order has filled"
+        },
+        {
+          "path": "o[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "o[].gi",
+          "type": "null",
+          "description": "group id; null when the order has none"
+        },
+        {
+          "path": "o[].ci",
+          "type": "null",
+          "description": "client order id; null when the order has none"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.trade_snapshot",
+      "channel": "user",
+      "event": "trade_snapshot",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].f",
+          "type": "string",
+          "description": "fee, decimal string"
+        },
+        {
+          "path": "t[].fc",
+          "type": "string",
+          "description": "fee currency"
+        },
+        {
+          "path": "t[].fd",
+          "type": "bool",
+          "description": "whether the fee is discounted, for example by paying it in MAX token"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    },
+    {
+      "id": "user.trade_update",
+      "channel": "user",
+      "event": "trade_update",
+      "fields": [
+        {
+          "path": "c",
+          "type": "string",
+          "description": "channel"
+        },
+        {
+          "path": "e",
+          "type": "string",
+          "description": "event"
+        },
+        {
+          "path": "t",
+          "type": "array",
+          "description": "trades"
+        },
+        {
+          "path": "t[]",
+          "type": "object",
+          "description": "one trade"
+        },
+        {
+          "path": "t[].i",
+          "type": "number",
+          "description": "trade id"
+        },
+        {
+          "path": "t[].sa",
+          "type": "string",
+          "description": "sub-account serial number; empty for the main account"
+        },
+        {
+          "path": "t[].M",
+          "type": "string",
+          "description": "market"
+        },
+        {
+          "path": "t[].sd",
+          "type": "string",
+          "description": "side of your order, `bid` or `ask`"
+        },
+        {
+          "path": "t[].p",
+          "type": "string",
+          "description": "price, decimal string"
+        },
+        {
+          "path": "t[].v",
+          "type": "string",
+          "description": "volume, decimal string"
+        },
+        {
+          "path": "t[].fn",
+          "type": "string",
+          "description": "funds, the quote amount of the trade, decimal string"
+        },
+        {
+          "path": "t[].f",
+          "type": "string",
+          "description": "fee, decimal string"
+        },
+        {
+          "path": "t[].fc",
+          "type": "string",
+          "description": "fee currency"
+        },
+        {
+          "path": "t[].fd",
+          "type": "bool",
+          "description": "whether the fee is discounted, for example by paying it in MAX token"
+        },
+        {
+          "path": "t[].T",
+          "type": "number",
+          "description": "created time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].TU",
+          "type": "number",
+          "description": "updated time, unix timestamp in milliseconds"
+        },
+        {
+          "path": "t[].m",
+          "type": "bool",
+          "description": "whether your order was the maker"
+        },
+        {
+          "path": "t[].oi",
+          "type": "number",
+          "description": "id of your order"
+        },
+        {
+          "path": "t[].rpi",
+          "type": "bool",
+          "description": "whether the trade filled an RPI order"
+        },
+        {
+          "path": "T",
+          "type": "number",
+          "description": "time the message was sent, unix timestamp in milliseconds"
+        }
+      ],
+      "status": "released"
+    }
+  ],
+  "filters": [
+    {
+      "name": "account",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "account_snapshot",
+        "account_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "ad_ratio",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "ad_ratio_snapshot",
+        "ad_ratio_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "borrowing",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "borrowing_snapshot",
+        "borrowing_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "fast_trade_update",
+      "audiences": [
+        "api"
+      ],
+      "emits": [
+        "fast_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_account",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_account_snapshot",
+        "mwallet_account_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_fast_trade_update",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_fast_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_order",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_order_snapshot",
+        "mwallet_order_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "mwallet_trade",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "mwallet_trade_snapshot",
+        "mwallet_trade_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "order",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "order_snapshot",
+        "order_update"
+      ],
+      "status": "released"
+    },
+    {
+      "name": "trade",
+      "audiences": [
+        "api",
+        "mobile"
+      ],
+      "emits": [
+        "trade_snapshot",
+        "trade_update"
+      ],
+      "status": "released"
+    }
+  ],
+  "missing_samples": null
+}
