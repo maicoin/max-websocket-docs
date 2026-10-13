@@ -10,20 +10,22 @@
 
 ### Field
 
-| Abbr             | Type                      | Description                                          |
-| ---------------- | --------------------------| -----------------------------------------------------|
-| `c`              | string                    | channel
-| `e`              | string                    | event (`snapshot` or `update`)
-| `M`              | string                    | market
-| `tk`             | ticker data               | ticker
-| (under the `tk`) | ---                       | ---
-| `M`              | string                    | market
-| `O`              | string of float           | open
-| `H`              | string of float           | high
-| `L`              | string of float           | low
-| `C`              | string of float           | close
-| `v`              | string of float           | volume
-| `V`              | string of float           | volume in BTC
+<!-- ws:begin fields channel=ticker -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `M` | string | market |
+| `e` | string | event, `snapshot` or `update` |
+| `tk` | object | ticker |
+| `tk.M` | string | market |
+| `tk.O` | string | open price, decimal string |
+| `tk.H` | string | high price, decimal string |
+| `tk.L` | string | low price, decimal string |
+| `tk.C` | string | close price, decimal string |
+| `tk.v` | string | volume in the base currency, decimal string |
+| `tk.V` | string | volume converted to BTC, decimal string |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 
 ### Snapshot
