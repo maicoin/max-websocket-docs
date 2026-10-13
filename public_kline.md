@@ -16,23 +16,27 @@ If you don't specify a resolution, the default value is set to `1m`.
 
 ### Field
 
-| Abbr             | Type                      | Description                                          |
-| ---------------- | --------------------------| -----------------------------------------------------|
-| `c`              | string                    | channel
-| `e`              | string                    | event (`snapshot` or `update`)
-| `k`              | kline data                | kline
-| (under the `k`)  | ---                       | ---
-| `ST`             | int                       | start time, unix timestamp in millisecond
-| `ET`             | int                       | end time, unix timestamp in millisecond
-| `M`              | string                    | market
-| `R`              | string                    | resolution
-| `O`              | string of float           | open
-| `H`              | string of float           | high
-| `L`              | string of float           | low
-| `C`              | string of float           | close
-| `v`              | string of float           | volume
-| `ti`             | int                       | last trade id
-| `x`              | bool                      | closed
+<!-- ws:begin fields channel=kline -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `M` | string | market |
+| `e` | string | event, `snapshot` or `update` |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+| `k` | object | kline |
+| `k.ST` | number | start time, unix timestamp in milliseconds |
+| `k.ET` | number | end time, unix timestamp in milliseconds |
+| `k.M` | string | market |
+| `k.R` | string | resolution, such as `1m` or `1h` |
+| `k.O` | string | open price, decimal string |
+| `k.H` | string | high price, decimal string |
+| `k.L` | string | low price, decimal string |
+| `k.C` | string | close price, decimal string |
+| `k.v` | string | volume in the base currency, decimal string |
+| `k.qv` | string | volume in the quote currency, decimal string |
+| `k.ti` | number | id of the last trade in the kline |
+| `k.x` | bool | whether the kline is closed |
+<!-- ws:end -->
 
 ### Snapshot
 
