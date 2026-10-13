@@ -9,6 +9,9 @@ No change to the messages the server sends; the documentation now describes all 
   * `qv` in klines: volume in the quote currency.
   * `gs`, `gsm` and `ds` in market status: grid trading support, the supported grid investment modes, and DCA support.
 * Fields that can be `null` are marked as such.
+* The authentication page lists every private filter, what it sends and where it is described, and documents the `subAccount` parameter.
+* The `3d` and `1w` kline resolutions are documented.
+* Wording across the pages is clearer, and the unsubscribe example is valid JSON.
 
 ## 25.25.0 (2024-12-02)
 - Support the mwallet_fast_trade_update filter for private channel.
