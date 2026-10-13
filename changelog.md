@@ -1,4 +1,4 @@
-## Unreleased (2026-10-13)
+## 26.85.0 (2026-10-13)
 
 ### Documentation
 No change to the messages the server sends; the documentation now describes all of it.
