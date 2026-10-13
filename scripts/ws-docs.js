@@ -139,7 +139,7 @@ function main() {
     ...surface.filters.filter((f) => !covered.filter.has(f.name)).map((f) => `filter=${f.name}`),
   ];
   if (uncovered.length > 0) {
-    console.log(`not generated on any page yet: ${uncovered.join(', ')}`);
+    throw new Error(`no page has a generated block for: ${uncovered.join(', ')}`);
   }
 
   if (stale.length === 0) {
