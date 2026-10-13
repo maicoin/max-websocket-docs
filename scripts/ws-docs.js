@@ -5,8 +5,9 @@
 //   <!-- ws:begin fields channel=book -->
 //   <!-- ws:end -->
 // and everything between the two markers is replaced. Text outside the
-// markers is never touched. `channel=<name>` describes the messages of a
-// public channel, `filter=<name>` the messages a private filter emits.
+// markers is never touched. `fields channel=<name>` describes the messages of
+// a public channel, `fields filter=<name>` the messages a private filter
+// emits, and `filters` lists every private filter with a link to its table.
 //
 // Usage: node scripts/ws-docs.js [--check]
 //   --check  change nothing; exit 1 if any page is out of date
@@ -107,14 +108,48 @@ function fieldsTable(messages, where) {
   return `${header}\n${lines.join('\n')}\n`;
 }
 
-function render(kind, args, where) {
+function render(kind, args, where, filterLocations) {
   if (kind === 'fields') return fieldsTable(messagesFor(args, where), where);
+  if (kind === 'filters') return filtersTable(filterLocations, where);
   throw new Error(`${where}: unknown block kind ${kind}`);
+}
+
+// The anchor docsify gives a heading.
+function slug(heading) {
+  return heading.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+}
+
+// Where each filter's field table lives: the page and the `## ` heading above
+// its block, in the order the pages and blocks appear.
+function locateFilters(pages) {
+  const locations = new Map();
+  for (const page of pages) {
+    const text = fs.readFileSync(path.join(root, page), 'utf8');
+    for (const match of text.matchAll(BLOCK)) {
+      const args = parseArgs(match[3]);
+      if (!args.filter) continue;
+      const headings = [...text.slice(0, match.index).matchAll(/^## (.+)$/gm)];
+      const heading = headings.length > 0 ? headings[headings.length - 1][1] : page;
+      locations.set(args.filter, { page, heading });
+    }
+  }
+  return locations;
+}
+
+function filtersTable(locations, where) {
+  const lines = [...locations.entries()].map(([name, { page, heading }]) => {
+    const filter = surface.filters.find((f) => f.name === name);
+    if (!filter) throw new Error(`${where}: no filter named ${name}`);
+    const emits = filter.emits.map((e) => `\`${e}\``).join(', ');
+    return `| \`${name}\` | ${emits} | [${cell(heading)}](${page}#${slug(heading)}) |`;
+  });
+  return `| Filter | You receive | Details |\n|---|---|---|\n${lines.join('\n')}\n`;
 }
 
 function main() {
   const check = process.argv.includes('--check');
   const pages = fs.readdirSync(root).filter((name) => name.endsWith('.md'));
+  const filterLocations = locateFilters(pages);
 
   const stale = [];
   const covered = { channel: new Set(), filter: new Set() };
@@ -126,7 +161,7 @@ function main() {
       const args = parseArgs(argText);
       if (args.channel) covered.channel.add(args.channel);
       if (args.filter) covered.filter.add(args.filter);
-      return begin + render(kind, args, `${page} ${kind}${argText}`) + end;
+      return begin + render(kind, args, `${page} ${kind}${argText}`, filterLocations) + end;
     });
 
     if (after === before) continue;
