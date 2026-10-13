@@ -1,3 +1,15 @@
+## Unreleased (2026-10-13)
+
+### Documentation
+No change to the messages the server sends; the documentation now describes all of it.
+* Every channel and private filter has a field table, generated from `ws_surface.json`, a machine-readable description of the API. The order book, public trade and pool quota pages have one for the first time.
+* Fields that were already sent but not documented:
+  * `rpi` in public trades, private trades and fast trades: whether the trade filled an RPI order.
+  * `sa` in orders, trades, fast trades, balances, AD ratio, borrowing and pool quota: the sub-account serial number, empty for the main account.
+  * `qv` in klines: volume in the quote currency.
+  * `gs`, `gsm` and `ds` in market status: grid trading support, the supported grid investment modes, and DCA support.
+* Fields that can be `null` are marked as such.
+
 ## 25.25.0 (2024-12-02)
 - Support the mwallet_fast_trade_update filter for private channel.
 
