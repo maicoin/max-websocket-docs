@@ -14,6 +14,26 @@ You need to specify book channel for subscribing order book, and indicate which 
 ## Success response (snapshot/update)
 When you subscribed successful, you will get an order book snapshot response, you will continue to get updates if order book is updated.
 
+### Field
+
+<!-- ws:begin fields channel=book -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `M` | string | market |
+| `e` | string | event, `snapshot` or `update` |
+| `a` | array | ask price levels |
+| `a[]` | array | one ask level: [price, volume] |
+| `a[][]` | string | price or volume, decimal string; a volume of 0 removes the level |
+| `b` | array | bid price levels |
+| `b[]` | array | one bid level: [price, volume] |
+| `b[][]` | string | price or volume, decimal string; a volume of 0 removes the level |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+| `fi` | number | first update id in this event |
+| `li` | number | last update id in this event |
+| `v` | number | order book version; resubscribe when it differs from the version of your local book |
+<!-- ws:end -->
+
 ### Snapshot
 ```json
 {

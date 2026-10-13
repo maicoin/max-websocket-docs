@@ -12,28 +12,32 @@ This channel is designed to help you in tracking your open orders of mwalletå. 
 
 ### Field
 
-| Abbr            | Type                      | Description                                          |
-| --------------- | --------------------------| -----------------------------------------------------|
-| `c`             | string                    | channel
-| `e`             | string                    | event (`mwallet_order_snapshot` or `mwallet_order_update`)
-| `o`             | array of orders           | orders
-| (under the `o`) | ---                       | ---
-| `i`             | int                       | id
-| `sd`            | string                    | side (`bid` or `ask`)
-| `ot`            | string                    | order type (`limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit`)
-| `p`             | string of float           | price
-| `sp`            | string of float or `null` | stop price
-| `ap`            | string of float           | average price
-| `v`             | string of float           | volume
-| `rv`            | string of float           | remain volume
-| `ev`            | string of float           | executed volume
-| `S`             | string                    | state
-| `M`             | string                    | market
-| `tc`            | int                       | trade count
-| `T`             | int                       | order created time, unix timestamp in millisecond
-| `TU`            | int                       | order updated time, unix timestamp in millisecond
-| `gi`            | int or `null`             | group order id
-| `ci`            | string or `null`          | client specific order id
+<!-- ws:begin fields filter=mwallet_order -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `mwallet_order_snapshot` or `mwallet_order_update` |
+| `o` | array | orders |
+| `o[]` | object | one order |
+| `o[].i` | number | order id |
+| `o[].sa` | string | sub-account serial number; empty for the main account |
+| `o[].sd` | string | side, `bid` or `ask` |
+| `o[].ot` | string | order type, such as `limit`, `market`, `stop_limit`, `stop_market`, `post_only` or `ioc_limit` |
+| `o[].p` | string | price, decimal string; null when the order has no price, such as a market order |
+| `o[].sp` | null or string | stop price, decimal string; null unless the order is a stop order |
+| `o[].ap` | string | average filled price, decimal string |
+| `o[].v` | string | volume, decimal string |
+| `o[].rv` | string | remaining volume, decimal string |
+| `o[].ev` | string | executed volume, decimal string |
+| `o[].S` | string | state, such as `wait`, `done` or `cancel` |
+| `o[].M` | string | market |
+| `o[].tc` | number | number of trades the order has filled |
+| `o[].T` | number | created time, unix timestamp in milliseconds |
+| `o[].TU` | number | updated time, unix timestamp in milliseconds |
+| `o[].gi` | null or number | group id; null when the order has none |
+| `o[].ci` | null or string | client order id; null when the order has none |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 ### Snapshot
 
@@ -97,24 +101,30 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
 
 ### Field
 
-| Abbr            | Type                      | Description                                          |
-| --------------- | --------------------------| -----------------------------------------------------|
-| `c`             | string                    | channel
-| `e`             | string                    | event (`mwallet_trade_snapshot` or `mwallet_trade_update`)
-| `t`             | array of trades           | trades
-| (under the `t`) | ---                       | ---  
-| `i`             | int                       | id
-| `M`             | string                    | market
-| `sd`            | string                    | side (`bid` or `ask`)
-| `p`             | string of float           | price
-| `v`             | string of float           | volume
-| `f`             | string of float           | fee
-| `fc`            | string                    | fee currency
-| `fn` .          | string                    | funds, the quote balance used in this trade.
-| `T`             | int                       | trade created time, unix timestamp in millisecond
-| `TU`            | int                       | trade updated time, unix timestamp in millisecond
-| `m`             | bool                      | maker
-| `oi`            | int                       | order id
+<!-- ws:begin fields filter=mwallet_trade -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `mwallet_trade_snapshot` or `mwallet_trade_update` |
+| `t` | array | trades |
+| `t[]` | object | one trade |
+| `t[].i` | number | trade id |
+| `t[].sa` | string | sub-account serial number; empty for the main account |
+| `t[].M` | string | market |
+| `t[].sd` | string | side of your order, `bid` or `ask` |
+| `t[].p` | string | price, decimal string |
+| `t[].v` | string | volume, decimal string |
+| `t[].fn` | string | funds, the quote amount of the trade, decimal string |
+| `t[].f` | string | fee, decimal string |
+| `t[].fc` | string | fee currency |
+| `t[].fd` | bool | whether the fee is discounted, for example by paying it in MAX token |
+| `t[].T` | number | created time, unix timestamp in milliseconds |
+| `t[].TU` | number | updated time, unix timestamp in milliseconds |
+| `t[].m` | bool | whether your order was the maker |
+| `t[].oi` | number | id of your order |
+| `t[].rpi` | bool | whether the trade filled an RPI order |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 ### Snapshot
 ```json
@@ -169,22 +179,27 @@ This is similar to the mwallet_trade_update channel, but it excludes the `fee` r
 
 ### Field
 
-| Abbr            | Type                      | Description                                          |
-| --------------- | --------------------------| -----------------------------------------------------|
-| `c`             | string                    | channel
-| `e`             | string                    | event (`mwallet_fast_trade_update`)
-| `t`             | array of trades           | trades
-| (under the `t`) | ---                       | ---  
-| `i`             | int                       | id
-| `M`             | string                    | market
-| `sd`            | string                    | side (`bid` or `ask`)
-| `p`             | string of float           | price
-| `v`             | string of float           | volume
-| `fn` .          | string                    | funds, the quote balance used in this trade.
-| `T`             | int                       | trade created time, unix timestamp in millisecond
-| `TU`            | int                       | trade updated time, unix timestamp in millisecond
-| `m`             | bool                      | maker
-| `oi`            | int                       | order id
+<!-- ws:begin fields filter=mwallet_fast_trade_update -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `mwallet_fast_trade_update` |
+| `t` | array | trades |
+| `t[]` | object | one trade |
+| `t[].i` | number | trade id |
+| `t[].sa` | string | sub-account serial number; empty for the main account |
+| `t[].M` | string | market |
+| `t[].sd` | string | side of your order, `bid` or `ask` |
+| `t[].p` | string | price, decimal string |
+| `t[].v` | string | volume, decimal string |
+| `t[].fn` | string | funds, the quote amount of the trade, decimal string |
+| `t[].T` | number | created time, unix timestamp in milliseconds |
+| `t[].TU` | number | updated time, unix timestamp in milliseconds |
+| `t[].m` | bool | whether your order was the maker |
+| `t[].oi` | number | id of your order |
+| `t[].rpi` | bool | whether the trade filled an RPI order |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 
 ### Update
@@ -214,17 +229,21 @@ This channel provides you with information regarding your account balances of mw
 
 ### Field
 
-| Abbr            | Type                      | Description
-| --------------- | ------------------------- |--------------- 
-| `c`             | string                    | channel
-| `e`             | string                    | event (`mwallet_account_snapshot` or `mwallet_account_update`)
-| `B`             | array of balances         | balances
-| (under the `B`) | ---                       | --- 
-| `cu`            | string                    | currency
-| `av`            | string of float           | available
-| `l`             | string of float           | locked
-| `stk`           | string of float or `null` | staked
-| `TU`            | int                       | balance updated time, unix timestamp in millisecond
+<!-- ws:begin fields filter=mwallet_account -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `mwallet_account_snapshot` or `mwallet_account_update` |
+| `B` | array | balances |
+| `B[]` | object | balance of one currency |
+| `B[].sa` | string | sub-account serial number; empty for the main account |
+| `B[].cu` | string | currency |
+| `B[].av` | string | available balance, decimal string |
+| `B[].l` | string | locked balance, decimal string |
+| `B[].stk` | null or string | staked balance, decimal string; may be null |
+| `B[].TU` | number | updated time, unix timestamp in milliseconds |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 ### Snapshot
 
@@ -270,20 +289,23 @@ This channel will return the message with your AD ratio of mwallet.
 
 ### Field
 
-| Abbr                  | Type                      | Description
-| --------------------- | ------------------------- |--------------- 
-| `c`                   | string                    | channel
-| `e`                   | string                    | event (`ad_ratio_snapshot` or `ad_ratio_update`)
-| `ad`                  | AD ratio                  | AD ratio
-| (under the `ad`)      | ---                       | --- 
-| `ad`                  | string of float           | AD ratio
-| `as`                  | string of float           | asset in usdt
-| `db`                  | string of float           | debt in usdt
-| `TU`                  | int                       | updated time, unix timestamp in millisecond
-| `idxp`                | array of index price      | index price
-| (under the `ad.idxp`) | ---                       | --- 
-| `M`                   | string                    | market of index price 
-| `p`                   | string of float           | price of index price
+<!-- ws:begin fields filter=ad_ratio -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `ad_ratio_snapshot` or `ad_ratio_update` |
+| `ad` | object | AD ratio |
+| `ad.sa` | string | sub-account serial number; empty for the main account |
+| `ad.ad` | string | AD ratio, decimal string |
+| `ad.as` | string | assets in USDT, decimal string |
+| `ad.db` | string | debts in USDT, decimal string |
+| `ad.idxp` | array | index prices used for the ratio |
+| `ad.idxp[]` | object | index price of one market |
+| `ad.idxp[].M` | string | market |
+| `ad.idxp[].p` | string | index price, decimal string |
+| `ad.TU` | number | updated time, unix timestamp in milliseconds |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 ### Snapshot
 
@@ -337,16 +359,20 @@ This channel will return your borrowing principal and interest of mwallet.
 
 ### Field
 
-| Abbr            | Type                      | Description
-| --------------- | ------------------------- |--------------- 
-| `c`             | string                    | channel
-| `e`             | string                    | event (`borrowing_snapshot` or `borrowing_update`)
-| `db`            | array of debt             |
-| (under the `db`)| ---                       | --- 
-| `cu`            | string                    | currency
-| `dbp`           | string of float           | debt principal
-| `dbi`           | string of float           | debt interest
-| `TU`            | int                       | updated time, unix timestamp in millisecond
+<!-- ws:begin fields filter=borrowing -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `borrowing_snapshot` or `borrowing_update` |
+| `db` | array | debts |
+| `db[]` | object | debt of one currency |
+| `db[].sa` | string | sub-account serial number; empty for the main account |
+| `db[].cu` | string | currency |
+| `db[].dbp` | string | debt principal, decimal string |
+| `db[].dbi` | string | debt interest, decimal string |
+| `db[].TU` | number | updated time, unix timestamp in milliseconds |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
 
 
 ### Snapshot

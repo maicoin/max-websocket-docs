@@ -11,6 +11,21 @@ Get MWallet total available loan quota.
 
 ## Success response
 
+### Field
+
+<!-- ws:begin fields channel=pool_quota -->
+| Field | Type | Description |
+|---|---|---|
+| `c` | string | channel |
+| `e` | string | event, `snapshot` or `update` |
+| `qta` | object | pool quota |
+| `qta.sa` | string | sub-account serial number; empty for the main account |
+| `qta.cu` | string | currency |
+| `qta.av` | string | available loan quota, decimal string |
+| `qta.TU` | number | updated time, unix timestamp in milliseconds |
+| `T` | number | time the message was sent, unix timestamp in milliseconds |
+<!-- ws:end -->
+
 ### Snapshot
 ```json
 {
