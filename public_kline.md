@@ -1,8 +1,6 @@
 # Kline subscription
 
-The kline channel is primarily designed to provide kline data. When subscribing, you need to specify the kline channel and market. Additionally, we offer a `resolution` field that allows you to subscribe to kline data with different resolutions. The available resolution options include `1m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h`, `12h`, and `1d`. 
-
-If you don't specify a resolution, the default value is set to `1m`.
+Subscribe to the `kline` channel with a `market`. The optional `resolution` picks the kline interval: `1m`, `5m`, `15m`, `30m`, `1h`, `2h`, `4h`, `6h`, `12h`, `1d`, `3d` or `1w`. The default is `1m`.
 
 ```json
 {

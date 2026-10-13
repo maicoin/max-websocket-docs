@@ -1,10 +1,10 @@
 # Private channels subscription
 
-Please see [Authentication](authentication.md) first.
+Please see [Authentication](authentication.md) first. Each section below is one filter.
 
 ## Order response
 
-This channel is designed to help you in tracking your open orders. When authenticating with the `order` filter specified, we will first return all of your existing open orders (also known as an order snapshot). Subsequently, if there are any updates to your orders, we will return order update messages.
+Tracks your open orders. With the `order` filter, the server first sends all of your open orders as an `order_snapshot`, then an `order_update` whenever one of your orders changes.
 
 ### Field
 
@@ -93,7 +93,7 @@ This channel is designed to help you in tracking your open orders. When authenti
 
 ## Trade response
 
-This channel is created to assist you in monitoring your trades. When you authenticate with the `trade` filter specified, we will initially provide you with the last 100 trades as a trade snapshot. After that, if there are any updates to your trades, we will send you trade update messages.
+Tracks your trades. With the `trade` filter, the server first sends your last 100 trades as a `trade_snapshot`, then a `trade_update` for every new trade.
 
 ### Field
 
@@ -174,7 +174,7 @@ This channel is created to assist you in monitoring your trades. When you authen
 
 ## Fast trade response
 
-This is similar to the trade_update channel, but it excludes the `fee` related fields, making it faster.
+Like `trade`, but without the fee fields and without a snapshot, which makes it faster. Use the `fast_trade_update` filter.
 
 ### Field
 
@@ -224,7 +224,7 @@ This is similar to the trade_update channel, but it excludes the `fee` related f
 
 ## Account response
 
-This channel provides you with information regarding your account balances. When you authenticate with the `account` filter specified, we will initially provide you with a snapshot message that includes all currencies in your wallet. Subsequently, if there is any change in the balance of any currency, we will send you an update message.
+Tracks your balances. With the `account` filter, the server first sends the balance of every currency in your wallet as an `account_snapshot`, then an `account_update` whenever a balance changes.
 
 ### Field
 

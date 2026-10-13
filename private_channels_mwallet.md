@@ -1,14 +1,10 @@
 # MWallet private channels subscription
 
-Please see [Authentication](authentication.md) first.
-
-If you want to subscribe MWallet related websocket channels, please specify following filters explicitly when you authenticate the websocket.
-
-Currently supported filters: `mwallet_order`, `mwallet_trade`, `mwallet_fast_trade_update`, `mwallet_account`, `ad_ratio` and `borrowing`.
+Please see [Authentication](authentication.md) first. Each section below is one filter. MWallet filters are never enabled by default; list the ones you want in `filters` when you authenticate.
 
 ## MWallet order response
 
-This channel is designed to help you in tracking your open orders of mwalletå. When authenticating with the `mwallet_order` filter specified, we will first return all of your existing open orders of mwallet. Subsequently, if there are any updates to your mwallet orders, we will return order update messages.
+Tracks your open MWallet orders. With the `mwallet_order` filter, the server first sends all of your open MWallet orders as an `mwallet_order_snapshot`, then an `mwallet_order_update` whenever one of them changes.
 
 ### Field
 
@@ -97,7 +93,7 @@ This channel is designed to help you in tracking your open orders of mwalletå. 
 
 ## MWallet trade response
 
-This channel is created to assist you in monitoring your mwallet trades. When you authenticate with the `mwallet_trade` filter specified, we will initially provide you with the last 100 trades as a trade snapshot. After that, if there are any updates to your mwallet trades, we will send you trade update messages.
+Tracks your MWallet trades. With the `mwallet_trade` filter, the server first sends your last 100 MWallet trades as an `mwallet_trade_snapshot`, then an `mwallet_trade_update` for every new trade.
 
 ### Field
 
@@ -175,7 +171,7 @@ This channel is created to assist you in monitoring your mwallet trades. When yo
 
 ## MWallet fast trade response
 
-This is similar to the mwallet_trade_update channel, but it excludes the `fee` related fields and without snapshot, making it faster.
+Like `mwallet_trade`, but without the fee fields and without a snapshot, which makes it faster. Use the `mwallet_fast_trade_update` filter.
 
 ### Field
 
@@ -225,7 +221,7 @@ This is similar to the mwallet_trade_update channel, but it excludes the `fee` r
 
 ## MWallet account response
 
-This channel provides you with information regarding your account balances of mwallet. When you authenticate with the `mwallet_account` filter specified, we will initially provide you with a snapshot message that includes all currencies in your mwallet. Subsequently, if there is any change in the balance of any currency, we will send you an update message.
+Tracks your MWallet balances. With the `mwallet_account` filter, the server first sends the balance of every currency in your MWallet as an `mwallet_account_snapshot`, then an `mwallet_account_update` whenever a balance changes.
 
 ### Field
 
@@ -285,7 +281,7 @@ This channel provides you with information regarding your account balances of mw
 
 ## MWallet AD ratio response
 
-This channel will return the message with your AD ratio of mwallet.
+Your MWallet AD ratio, with the assets, debts and index prices it is computed from. Use the `ad_ratio` filter.
 
 ### Field
 
@@ -355,7 +351,7 @@ This channel will return the message with your AD ratio of mwallet.
 
 ## MWallet borrowing response
 
-This channel will return your borrowing principal and interest of mwallet.
+Your MWallet debt per currency, as principal and interest. Use the `borrowing` filter.
 
 ### Field
 

@@ -1,6 +1,6 @@
 # MWallet pool quota subscription
 
-Get MWallet total available loan quota.
+The total MWallet loan quota still available for a currency. Subscribe with a `currency` instead of a `market`.
 
 ```json
 { 

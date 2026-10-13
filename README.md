@@ -2,20 +2,18 @@
 
 ## Introduction
 
-Official documentation for the new redesign MAX Exchange websocket service
+Official documentation for the MAX Exchange WebSocket API.
 
 __Endpoint__: `wss://max-stream.maicoin.com/ws`
 
 __Important note__
-> * price and volume should be string
-> * timestamp and depth should be number
-> * rate limit when your request message over 20 per second
-> * rate limit when your request message over 200 per minute
-> * rate limit when your ip connection over 600 per hour
+> * Prices and volumes are strings; timestamps and depths are numbers.
+> * Request messages are rate limited to 20 per second and 200 per minute.
+> * New connections from one IP are rate limited to 600 per hour.
 
 ## Keep connection
 
-You need to use ping frame to keep connection with server. If server doesn't receive your ping for 130 seconds, the connection will be closed by server side. Some libraries will do this for you, so please check your library first.
+You need to send ping frames to keep the connection open. If the server receives no ping for 130 seconds, it closes the connection. Many libraries send pings for you; check yours first.
 
 ```javascript
 const WebSocket = require('ws');
@@ -39,7 +37,7 @@ ws.on('pong', function incoming(data) {
 - Rate limit violations will result in a penalty. You must wait for the full period of the penalty before making any subsequent requests. Otherwise, the penalty time will be reset and the period of being banned will be prolonged.
 
 ## Response key alias
-We use short keys to reduce response size, please check out mappings below.
+Responses use short keys to keep messages small. Each channel's page has a field table with the full description; the common keys are:
 
 | abbr  | meaning            | comment             |
 |-------|--------------------| ------------------- |
@@ -72,8 +70,6 @@ We use short keys to reduce response size, please check out mappings below.
 | `ot`  | `ord_type`         | 
 | `sp`  | `stop_price`       | 
 | `ap`  | `avg_price`        | 
-| `aps` |                    |
-| `ps`  |                    |
 | `tc`  | `trade_count`      | 
 | `B`   | `balances`         | 
 | `rv`  | `remaining_volume` | 
@@ -93,8 +89,9 @@ We use short keys to reduce response size, please check out mappings below.
 | `gi`  | `group id`         | 
 | `tr`  | `trend`            | 
 | `co`  | `code`             |
-| `_q`  |                    |
-| `_t`  |                    |
+| `sa`  | `sub-account`      | sub-account serial number, empty for the main account |
+| `rpi` | `rpi`              | whether a trade filled an RPI order |
+| `stk` | `staked`           | in balances |
 | `fi`  | `first id`         | in book |
 | `li`  | `last id`          | in book |
 | `v`   | `version`          | in book |
@@ -102,7 +99,7 @@ We use short keys to reduce response size, please check out mappings below.
 
 ## Error response
 
-If you get any error response, it will be concentrated in an array.
+If you get an error response, its messages are collected in an array.
 
 ```json
 {
