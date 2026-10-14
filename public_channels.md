@@ -1,7 +1,7 @@
 # Public Channel Subscription
 
 ## Subscribe
-You can specify an id to mark your request, and it will be your reference for response.
+Send a `sub` action with the channels you want. `id` is optional: any string you choose, carried back in the response as `i`.
 
 ```json
 {
@@ -29,10 +29,10 @@ You can specify an id to mark your request, and it will be your reference for re
 ```json
 {
   "action": "unsub",
-  "subscription": [
+  "subscriptions": [
     {"channel": "book", "market": "btctwd", "depth": 1},
     {"channel": "trade", "market": "btctwd" }
-  ]
+  ],
   "id": "client1"
 }
 ```

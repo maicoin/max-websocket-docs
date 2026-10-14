@@ -1,6 +1,6 @@
 # Market status subscription
 
-This channel will provide the market status of Max platform.
+The trading status and order limits of every MAX market. No `market` is needed.
 
 ```json
 {
@@ -39,7 +39,7 @@ This channel will provide the market status of Max platform.
 ```json
 {
   "c": "market_status",
-  "e": "snaptshot",
+  "e": "snapshot",
   "ms": [{
       "M": "btctwd",
       "st": "active",
